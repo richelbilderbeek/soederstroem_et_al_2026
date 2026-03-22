@@ -12,19 +12,19 @@ pip install git+https://github.com/jieliliu/m3inference.git --break-system-packa
 
 ## Download test data
 
+The testdata can be downloaded from 
+[`https://github.com/euagendas/m3inference`](https://github.com/euagendas/m3inference).
+The file can be viewed [here](https://github.com/euagendas/m3inference/blob/master/test/data.jsonl).
 
-
-# 
-#
-# Data from m3inference test suite:
-#
-# - GitHub view: https://github.com/euagendas/m3inference/blob/master/test/data.jsonl
-# - Raw data: https://raw.githubusercontent.com/euagendas/m3inference/refs/heads/master/test/data.jsonl
-#
-
+```
+wget https://raw.githubusercontent.com/euagendas/m3inference/refs/heads/master/test/data.jsonl
+```
 
 ## Running
 
+```
+./run.py
+```
 
 ## FAQ
 
