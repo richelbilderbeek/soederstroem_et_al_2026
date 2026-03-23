@@ -1,7 +1,7 @@
 #!/bin/env Rscript
 
 # Create the same text as the example
-create_test_text <- funtion() {
+create_test_text <- function() {
   c(
     "{\"id\": \"720389270335135745\", \"name\": \"The Web Conference\", \"screen_name\": \"TheWebConf\", \"description\": \"The Web Conference Series (formerly WWW) ||  #TheWebConf 2019\", \"lang\": \"en\", \"img_path\": \"./test/pic/9h1m2705_400x400.jpg\"}",
     "{\"id\": \"21447363\", \"name\": \"KATY PERRY\", \"screen_name\": \"katyperry\", \"description\": \"Love. Light.\", \"lang\": \"en\", \"img_path\": \"./test/pic/Wb77WUdv_400x400.jpg\"}",
@@ -12,3 +12,5 @@ create_test_text <- funtion() {
     "{\"id\": \"230845588\", \"name\": \"Robin van Persie\", \"screen_name\": \"Persie_Official\", \"description\": \"\", \"lang\": \"nl\", \"img_path\": \"./test/pic/6-AWM5dS_400x400.jpg\"}"
   )
 }
+
+readr::write_lines(create_test_text(), "data.jsonl")
