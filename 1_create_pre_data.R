@@ -63,7 +63,7 @@ for (i in seq_len(n_lines)) {
     screen_name = t$screen_name[i],
     description = t$description[i],
     lang = t$lang[i],
-    img_path = t$img_path[i]
+    img_path = paste0("intermediate/", t$screen_name[i], ".jpg")
   )
 }
 
