@@ -51,12 +51,15 @@ create_test_text <- function() {
 t <- readr::read_csv(file = "data/yttrandefrihet.csv", show_col_types = FALSE)
 t$id <- as.character(t$id)
 
+# Simplify, so that tool can work with it
+t$name <- stringr::str_remove_all(stringi::stri_enc_toascii(t$name), "\032")
+t$description <- stringr::str_remove_all(stringr::str_remove_all(stringi::stri_enc_toascii(t$description), "\032"), "\n")
+
 n_lines <- nrow(t)
 
 jsonl_text <- rep(x = "", times = n_lines)
 
 create_image_path <- function(screen_name) {
-
   paste0("intermediate/", stringr::str_to_lower(screen_name), ".jpg")
 }
 
@@ -79,7 +82,7 @@ if (do_list_missing_images) {
 
 for (i in seq_len(n_lines)) {
   img_path <- create_image_path(t$screen_name[i])
-  message(img_path)
+  # message(img_path)
   if (!file.exists(img_path)) break
   jsonl_text[i] <- create_line(
     id = t$id[i], # string
@@ -90,6 +93,8 @@ for (i in seq_len(n_lines)) {
     img_path = img_path
   )
 }
+
+jsonl_text <- jsonl_text[jsonl_text != ""]
 
 readr::write_lines(jsonl_text, "intermediate/data.jsonl")
 
