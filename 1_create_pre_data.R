@@ -55,15 +55,39 @@ n_lines <- nrow(t)
 
 jsonl_text <- rep(x = "", times = n_lines)
 
+create_image_path <- function(screen_name) {
+
+  paste0("intermediate/", stringr::str_to_lower(screen_name), ".jpg")
+}
+
+do_list_missing_images <- FALSE
+if (do_list_missing_images) {
+
+  n <- 0
+  for (i in seq_len(n_lines)) {
+    screen_name <- t$screen_name[i]
+    image_path <- create_image_path(screen_name)
+    if (!file.exists(image_path)) {
+      message(screen_name)
+      n <- n + 1
+    }
+    #if (n == 50) return (42)
+  }
+
+}
+
+
 for (i in seq_len(n_lines)) {
-  # message(i)
+  img_path <- create_image_path(t$screen_name[i])
+  message(img_path)
+  if (!file.exists(img_path)) break
   jsonl_text[i] <- create_line(
     id = t$id[i], # string
     name = t$name[i],
     screen_name = t$screen_name[i],
     description = t$description[i],
     lang = t$lang[i],
-    img_path = paste0("intermediate/", t$screen_name[i], ".jpg")
+    img_path = img_path
   )
 }
 
