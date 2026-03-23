@@ -48,7 +48,7 @@ create_test_text <- function() {
 
 # readr::write_lines(create_test_text(), "data.jsonl")
 
-t <- readr::read_csv(file = "data/yttrandefrihet.csv")
+t <- readr::read_csv(file = "data/yttrandefrihet.csv", show_col_types = FALSE)
 t$id <- as.character(t$id)
 
 n_lines <- nrow(t)
@@ -56,8 +56,7 @@ n_lines <- nrow(t)
 jsonl_text <- rep(x = "", times = n_lines)
 
 for (i in seq_len(n_lines)) {
-  message(i)
-  names(t)
+  # message(i)
   jsonl_text[i] <- create_line(
     id = t$id[i], # string
     name = t$name[i],
@@ -68,5 +67,5 @@ for (i in seq_len(n_lines)) {
   )
 }
 
-readr::write_line(jsonl_text, "data.jsonl"")
+readr::write_lines(jsonl_text, "data.jsonl")
 
