@@ -28,7 +28,62 @@ is easy. 50 at a time though ...
 ## Running
 
 ```
-./run.py
+./run.sh
+```
+
+## Error
+
+```
+richel@richel-latitude-7430:~/GitHubs/twitter_inference$ ./3_run_processed_data.py 
+03/23/2026 21:17:08 - INFO - m3inference.m3inference -   Version 1.1.5
+03/23/2026 21:17:08 - INFO - m3inference.m3inference -   Running on cpu.
+03/23/2026 21:17:08 - INFO - m3inference.m3inference -   Will use full M3 model.
+03/23/2026 21:17:08 - INFO - m3inference.m3inference -   Model full_model exists at /home/richel/m3/models/full_model.mdl.
+03/23/2026 21:17:08 - INFO - m3inference.utils -   Checking MD5 for model full_model at /home/richel/m3/models/full_model.mdl
+03/23/2026 21:17:08 - INFO - m3inference.utils -   MD5s match.
+03/23/2026 21:17:08 - INFO - m3inference.m3inference -   Loaded pretrained weight at /home/richel/m3/models/full_model.mdl
+03/23/2026 21:17:08 - INFO - m3inference.dataset -   50 data entries loaded.
+Predicting...:   0%|                                                  | 0/4 [00:00<?, ?it/s]/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py:1118: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+Predicting...:  25%|██████████▌                               | 1/4 [00:01<00:03,  1.33s/it]
+Traceback (most recent call last):
+  File "/home/richel/GitHubs/twitter_inference/./3_run_processed_data.py", line 6, in <module>
+    pred = m3.infer('./intermediate/data_resized.jsonl')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/richel/.local/lib/python3.12/site-packages/m3inference/m3inference.py", line 130, in infer
+    for batch in tqdm(dataloader, desc='Predicting...', disable=logging.root.level>=logging.WARN):
+  File "/home/richel/.local/lib/python3.12/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1518, in _next_data
+    return self._process_data(data, worker_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+    data.reraise()
+  File "/home/richel/.local/lib/python3.12/site-packages/torch/_utils.py", line 775, in reraise
+    raise exception
+RuntimeError: Caught RuntimeError in DataLoader worker process 1.
+Original Traceback (most recent call last):
+  File "/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 57, in fetch
+    return self.collate_fn(data)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/_utils/collate.py", line 401, in default_collate
+    return collate(batch, collate_fn_map=default_collate_fn_map)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/_utils/collate.py", line 215, in collate
+    collate(samples, collate_fn_map=collate_fn_map)
+  File "/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/_utils/collate.py", line 155, in collate
+    return collate_fn_map[elem_type](batch, collate_fn_map=collate_fn_map)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/_utils/collate.py", line 274, in collate_tensor_fn
+    out = elem.new(storage).resize_(len(batch), *list(elem.size()))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Trying to resize storage that is not resizable
 ```
 
 ## FAQ
@@ -100,3 +155,5 @@ Collecting git+https://github.com/euagendas/m3inference.git
 ```
 
 However, the code `run.py` will not work.
+
+
