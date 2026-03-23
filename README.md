@@ -20,6 +20,11 @@ The file can be viewed [here](https://github.com/euagendas/m3inference/blob/mast
 wget https://raw.githubusercontent.com/euagendas/m3inference/refs/heads/master/test/data.jsonl
 ```
 
+## Download Twitter profiles
+
+[Using this GitHub repository](https://github.com/sinugrepo/x_profile_downloader)
+is easy. 50 at a time though ...
+
 ## Running
 
 ```
