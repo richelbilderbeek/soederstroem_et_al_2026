@@ -1,5 +1,38 @@
 #!/bin/env Rscript
 
+create_test_line <- function() {
+  "{\"id\": \"720389270335135745\", \"name\": \"The Web Conference\", \"screen_name\": \"TheWebConf\", \"description\": \"The Web Conference Series (formerly WWW) ||  #TheWebConf 2019\", \"lang\": \"en\", \"img_path\": \"./test/pic/9h1m2705_400x400.jpg\"}"
+}
+
+#' Create a line
+create_line <- function(
+  id, # string
+  name,
+  screen_name,
+  description,
+  lang,
+  img_path
+) {
+  testthat::expect_equal(1, length(id))
+  testthat::expect_true(is.character(id))
+  paste0(
+    "{\"id\": \"", id, "\", \"name\": \"", name, "\", \"screen_name\": \"", screen_name, "\", \"description\": \"", description, "\", \"lang\": \"", lang, "\", \"img_path\": \"", img_path, "\"}"
+  )
+}
+
+testthat::expect_equal(
+  create_test_line()[1],
+  create_line(
+    id = "720389270335135745",
+    name = "The Web Conference",
+    screen_name = "TheWebConf",
+    description = "The Web Conference Series (formerly WWW) ||  #TheWebConf 2019",
+    lang = "en",
+    img_path = "./test/pic/9h1m2705_400x400.jpg"
+  )
+)
+
+
 # Create the same text as the example
 create_test_text <- function() {
   c(
@@ -13,4 +46,11 @@ create_test_text <- function() {
   )
 }
 
-readr::write_lines(create_test_text(), "data.jsonl")
+# readr::write_lines(create_test_text(), "data.jsonl")
+
+t <- readr::read_csv(file = "data/yttrandefrihet.csv")
+
+n_lines <- nrow(t)
+for (i in seq_len(n_lines)) {
+  message(i)
+}
