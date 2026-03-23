@@ -67,5 +67,5 @@ for (i in seq_len(n_lines)) {
   )
 }
 
-readr::write_lines(jsonl_text, "data.jsonl")
+readr::write_lines(jsonl_text, "intermediate/data.jsonl")
 
