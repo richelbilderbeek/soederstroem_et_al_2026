@@ -55,6 +55,16 @@ t$id <- as.character(t$id)
 t$name <- stringr::str_remove_all(stringi::stri_enc_toascii(t$name), "\032")
 t$description <- stringr::str_remove_all(stringr::str_remove_all(stringi::stri_enc_toascii(t$description), "\032"), "\n")
 
+testthat::expect_equal(0, sum(t$id == ""))
+
+t$name[which(t$name == "")] <- "Unknown"
+testthat::expect_equal(0, sum(t$name == ""))
+testthat::expect_equal(0, sum(t$screen_name == ""))
+t$description[which(t$description == "")] <- "None"
+t$description[which(is.na(t$description))] <- "None"
+testthat::expect_equal(0, sum(t$description == ""))
+testthat::expect_equal(0, sum(t$lang == ""))
+
 n_lines <- nrow(t)
 
 jsonl_text <- rep(x = "", times = n_lines)
