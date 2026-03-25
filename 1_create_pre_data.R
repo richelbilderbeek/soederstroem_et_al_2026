@@ -71,6 +71,7 @@ convert_to_jsonl <- function(csv_filename) {
   t$id <- as.character(t$id)
 
   # Simplify, so that tool can work with it
+  # Pipeline will not work without it
   t$name <- stringr::str_remove_all(stringi::stri_enc_toascii(t$name), "\032")
   t$description <- stringr::str_remove_all(stringr::str_remove_all(stringi::stri_enc_toascii(t$description), "\032"), "\n")
 
