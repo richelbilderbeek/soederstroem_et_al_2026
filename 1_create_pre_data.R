@@ -1,5 +1,8 @@
 #!/bin/env Rscript
 
+# Maximum numbers of rows to keep
+max_n_rows <- 22
+
 create_test_line <- function() {
   "{\"id\": \"720389270335135745\", \"name\": \"The Web Conference\", \"screen_name\": \"TheWebConf\", \"description\": \"The Web Conference Series (formerly WWW) ||  #TheWebConf 2019\", \"lang\": \"en\", \"img_path\": \"./test/pic/9h1m2705_400x400.jpg\"}"
 }
@@ -46,9 +49,14 @@ create_test_text <- function() {
   )
 }
 
-# readr::write_lines(create_test_text(), "data.jsonl")
 
 t <- readr::read_csv(file = "data/yttrandefrihet.csv", show_col_types = FALSE)
+
+# Shortening the data for testing
+if (!is.na(max_n_rows)) {
+  t <- t[1:max_n_rows, ]
+}
+
 t$id <- as.character(t$id)
 
 # Simplify, so that tool can work with it
