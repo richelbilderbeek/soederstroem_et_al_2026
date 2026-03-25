@@ -1,7 +1,8 @@
 #!/bin/env Rscript
 
 # Maximum numbers of rows to keep
-max_n_rows <- 22
+max_n_rows <- NA
+# max_n_rows <- 22
 
 create_test_line <- function() {
   "{\"id\": \"720389270335135745\", \"name\": \"The Web Conference\", \"screen_name\": \"TheWebConf\", \"description\": \"The Web Conference Series (formerly WWW) ||  #TheWebConf 2019\", \"lang\": \"en\", \"img_path\": \"./test/pic/9h1m2705_400x400.jpg\"}"
@@ -49,70 +50,82 @@ create_test_text <- function() {
   )
 }
 
-
-t <- readr::read_csv(file = "data/yttrandefrihet.csv", show_col_types = FALSE)
-
-# Shortening the data for testing
-if (!is.na(max_n_rows)) {
-  t <- t[1:max_n_rows, ]
+#' Get the paths to the data files
+get_data_files <- function() {
+  csv_file_names <- list.files(path = "data", pattern = "*.csv", full.names = TRUE)
+  testthat::expect_equal(3, length(csv_file_names))
+  csv_file_names
 }
 
-t$id <- as.character(t$id)
+convert_to_jsonl <- function(csv_filename) {
+  testthat::expect_equal(1, length(csv_filename))
+  testthat::expect_true(file.exists(csv_filename))
+  t <- readr::read_csv(file = csv_filename, show_col_types = FALSE)
 
-# Simplify, so that tool can work with it
-t$name <- stringr::str_remove_all(stringi::stri_enc_toascii(t$name), "\032")
-t$description <- stringr::str_remove_all(stringr::str_remove_all(stringi::stri_enc_toascii(t$description), "\032"), "\n")
-
-testthat::expect_equal(0, sum(t$id == ""))
-
-t$name[which(t$name == "")] <- "Unknown"
-testthat::expect_equal(0, sum(t$name == ""))
-testthat::expect_equal(0, sum(t$screen_name == ""))
-t$description[which(t$description == "")] <- "None"
-t$description[which(is.na(t$description))] <- "None"
-testthat::expect_equal(0, sum(t$description == ""))
-testthat::expect_equal(0, sum(t$lang == ""))
-
-n_lines <- nrow(t)
-
-jsonl_text <- rep(x = "", times = n_lines)
-
-create_image_path <- function(screen_name) {
-  paste0("data/", stringr::str_to_lower(screen_name), ".jpg")
-}
-
-do_list_missing_images <- FALSE
-if (do_list_missing_images) {
-
-  n <- 0
-  for (i in seq_len(n_lines)) {
-    screen_name <- t$screen_name[i]
-    image_path <- create_image_path(screen_name)
-    if (!file.exists(image_path)) {
-      message(screen_name)
-      n <- n + 1
-    }
-    #if (n == 50) return (42)
+  # Shortening the data for testing
+  if (!is.na(max_n_rows)) {
+    t <- t[1:max_n_rows, ]
   }
 
+  # Transforming data
+  t$id <- as.character(t$id)
+
+  # Simplify, so that tool can work with it
+  t$name <- stringr::str_remove_all(stringi::stri_enc_toascii(t$name), "\032")
+  t$description <- stringr::str_remove_all(stringr::str_remove_all(stringi::stri_enc_toascii(t$description), "\032"), "\n")
+
+  testthat::expect_equal(0, sum(t$id == ""))
+
+  t$name[which(t$name == "")] <- "Unknown"
+  testthat::expect_equal(0, sum(t$name == ""))
+  testthat::expect_equal(0, sum(t$screen_name == ""))
+  t$description[which(t$description == "")] <- "None"
+  t$description[which(is.na(t$description))] <- "None"
+  testthat::expect_equal(0, sum(t$description == ""))
+  testthat::expect_equal(0, sum(t$lang == ""))
+
+  n_lines <- nrow(t)
+
+  jsonl_text <- rep(x = "", times = n_lines)
+
+  create_image_path <- function(screen_name) {
+    paste0("data/", stringr::str_to_lower(screen_name), ".jpg")
+  }
+
+  do_list_missing_images <- TRUE
+  if (do_list_missing_images) {
+
+    n <- 0
+    for (i in seq_len(n_lines)) {
+      screen_name <- t$screen_name[i]
+      image_path <- create_image_path(screen_name)
+      if (!file.exists(image_path)) {
+        message(screen_name)
+        n <- n + 1
+      }
+      #if (n == 50) return (42)
+    }
+
+  }
+
+
+  for (i in seq_len(n_lines)) {
+    img_path <- create_image_path(t$screen_name[i])
+    # message(img_path)
+    if (!file.exists(img_path)) break
+    jsonl_text[i] <- create_line(
+      id = t$id[i], # string
+      name = t$name[i],
+      screen_name = t$screen_name[i],
+      description = t$description[i],
+      lang = t$lang[i],
+      img_path = img_path
+    )
+  }
+
+  jsonl_text <- jsonl_text[jsonl_text != ""]
+
+  readr::write_lines(jsonl_text, "intermediate/data.jsonl")
 }
 
-
-for (i in seq_len(n_lines)) {
-  img_path <- create_image_path(t$screen_name[i])
-  # message(img_path)
-  if (!file.exists(img_path)) break
-  jsonl_text[i] <- create_line(
-    id = t$id[i], # string
-    name = t$name[i],
-    screen_name = t$screen_name[i],
-    description = t$description[i],
-    lang = t$lang[i],
-    img_path = img_path
-  )
-}
-
-jsonl_text <- jsonl_text[jsonl_text != ""]
-
-readr::write_lines(jsonl_text, "intermediate/data.jsonl")
-
+convert_to_jsonl(get_data_files()[3])
