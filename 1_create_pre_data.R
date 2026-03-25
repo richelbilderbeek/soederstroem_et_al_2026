@@ -78,7 +78,7 @@ n_lines <- nrow(t)
 jsonl_text <- rep(x = "", times = n_lines)
 
 create_image_path <- function(screen_name) {
-  paste0("intermediate/", stringr::str_to_lower(screen_name), ".jpg")
+  paste0("data/", stringr::str_to_lower(screen_name), ".jpg")
 }
 
 do_list_missing_images <- FALSE
