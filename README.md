@@ -22,8 +22,18 @@ wget https://raw.githubusercontent.com/euagendas/m3inference/refs/heads/master/t
 
 ## Download Twitter profiles
 
-[Using this GitHub repository](https://github.com/sinugrepo/x_profile_downloader)
-is easy. 50 at a time though ...
+For less than 50 profile images per 4 hours,
+[using this GitHub repository](https://github.com/sinugrepo/x_profile_downloader)
+is easy.
+
+Using [Twitter Media Downloader](https://github.com/mmpx12/twitter-media-downloader.git):
+
+```
+git clone https://github.com/mmpx12/twitter-media-downloader.git
+cd twitter-media-downloader/
+make
+```
+
 
 ## Running
 
