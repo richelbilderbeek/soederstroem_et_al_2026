@@ -109,9 +109,11 @@ convert_to_jsonl <- function(
   t$name[which(t$name == "")] <- "Unknown"
   testthat::expect_equal(0, sum(t$name == ""))
   testthat::expect_equal(0, sum(t$screen_name == ""))
+  t$description[which(is.na(t$description))] <- "None"
   t$description[which(t$description == "")] <- "None"
   t$description[which(is.na(t$description))] <- "None"
   testthat::expect_equal(0, sum(t$description == ""))
+  t[which(is.na(t$lang)), ]$lang <- "un"
   t <- t[which(t$lang != ""), ]
   testthat::expect_equal(0, sum(t$lang == ""))
 
