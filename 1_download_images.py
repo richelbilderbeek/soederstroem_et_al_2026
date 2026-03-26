@@ -3,7 +3,7 @@ import requests
 import urllib.request
 import urllib.parse
 
-bearer_token = open('bearer_token', 'r').read()
+bearer_token = open('bearer_token', 'r').read().strip()
 
 print("bearer_token: ", bearer_token)
 usernames_file = 'missing_profile_pictures.txt'
