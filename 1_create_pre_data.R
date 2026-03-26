@@ -57,10 +57,38 @@ get_data_files <- function() {
   csv_file_names
 }
 
-convert_to_jsonl <- function(csv_filename) {
-  testthat::expect_equal(1, length(csv_filename))
-  testthat::expect_true(file.exists(csv_filename))
-  t <- readr::read_csv(file = csv_filename, show_col_types = FALSE)
+testthat::expect_true(all(file.exists(get_data_files())))
+
+
+#' Convert the file path of a comma-separated file in 'data',
+#' to a path of a JSONL file in 'intermediate'
+to_intermediate_file_name <- function(data_file_name) {
+  stringr::str_replace(
+    stringr::str_replace(data_file_name, ".csv", ".jsonl"),
+    "data/",
+    "intermediate/")
+}
+
+testthat::expect_equal(
+  to_intermediate_file_name(data_file_name = "data/yttrandefrihet.csv"),
+  "intermediate/yttrandefrihet.jsonl"
+)
+testthat::expect_equal(
+  to_intermediate_file_name(data_file_name = "data/stop_the_steal.csv"),
+  "intermediate/stop_the_steal.jsonl"
+)
+testthat::expect_equal(
+  to_intermediate_file_name(data_file_name = "data/swexit.csv"),
+  "intermediate/swexit.jsonl"
+)
+
+convert_to_jsonl <- function(
+  csv_file_name,
+  jsonl_file_name
+) {
+  testthat::expect_equal(1, length(csv_file_name))
+  testthat::expect_true(file.exists(csv_file_name))
+  t <- readr::read_csv(file = csv_file_name, show_col_types = FALSE)
 
   # Shortening the data for testing
   if (!is.na(max_n_rows)) {
@@ -75,6 +103,7 @@ convert_to_jsonl <- function(csv_filename) {
   t$name <- stringr::str_remove_all(stringi::stri_enc_toascii(t$name), "\032")
   t$description <- stringr::str_remove_all(stringr::str_remove_all(stringi::stri_enc_toascii(t$description), "\032"), "\n")
 
+  t <- t[which(t$id != ""), ]
   testthat::expect_equal(0, sum(t$id == ""))
 
   t$name[which(t$name == "")] <- "Unknown"
@@ -83,6 +112,7 @@ convert_to_jsonl <- function(csv_filename) {
   t$description[which(t$description == "")] <- "None"
   t$description[which(is.na(t$description))] <- "None"
   testthat::expect_equal(0, sum(t$description == ""))
+  t <- t[which(t$lang != ""), ]
   testthat::expect_equal(0, sum(t$lang == ""))
 
   n_lines <- nrow(t)
@@ -93,7 +123,7 @@ convert_to_jsonl <- function(csv_filename) {
     paste0("data/", stringr::str_to_lower(screen_name), ".jpg")
   }
 
-  do_list_missing_images <- TRUE
+  do_list_missing_images <- FALSE
   if (do_list_missing_images) {
 
     n <- 0
@@ -123,10 +153,14 @@ convert_to_jsonl <- function(csv_filename) {
       img_path = img_path
     )
   }
-
-  jsonl_text <- jsonl_text[jsonl_text != ""]
-
-  readr::write_lines(jsonl_text, "intermediate/data.jsonl")
+  readr::write_lines(jsonl_text, jsonl_file_name)
 }
 
-convert_to_jsonl(get_data_files()[3])
+for (csv_file_name in get_data_files()) {
+  message(csv_file_name)
+  jsonl_file_name <- to_intermediate_file_name(csv_file_name)
+  message(jsonl_file_name)
+  convert_to_jsonl(csv_file_name = csv_file_name, jsonl_file_name = jsonl_file_name)
+  testthat::expect_true(file.exists(jsonl_file_name))
+}
+
