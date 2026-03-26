@@ -123,7 +123,7 @@ convert_to_jsonl <- function(
     paste0("data/", stringr::str_to_lower(screen_name), ".jpg")
   }
 
-  do_list_missing_images <- FALSE
+  do_list_missing_images <- TRUE
   if (do_list_missing_images) {
 
     n <- 0
@@ -159,6 +159,7 @@ convert_to_jsonl <- function(
 for (csv_file_name in get_data_files()) {
   message(csv_file_name)
   jsonl_file_name <- to_intermediate_file_name(csv_file_name)
+  dir.create(dirname(jsonl_file_name), showWarnings = FALSE)
   message(jsonl_file_name)
   convert_to_jsonl(csv_file_name = csv_file_name, jsonl_file_name = jsonl_file_name)
   testthat::expect_true(file.exists(jsonl_file_name))
