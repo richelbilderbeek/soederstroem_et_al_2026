@@ -159,6 +159,7 @@ convert_to_jsonl <- function(
 }
 
 for (csv_file_name in get_data_files()) {
+  message("-------------------------------------------------------------------")
   message(csv_file_name)
   jsonl_file_name <- to_intermediate_file_name(csv_file_name)
   dir.create(dirname(jsonl_file_name), showWarnings = FALSE)
