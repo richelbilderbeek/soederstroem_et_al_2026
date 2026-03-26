@@ -26,12 +26,14 @@ For less than 50 profile images per 4 hours,
 [using this GitHub repository](https://github.com/sinugrepo/x_profile_downloader)
 is easy.
 
-Using [Twitter Media Downloader](https://github.com/mmpx12/twitter-media-downloader.git):
+Using [Twitter Media Downloader](https://github.com/mmpx12/twitter-media-downloader.git)
+does allow to download all images, but not the profile pictures:
 
 ```
 git clone https://github.com/mmpx12/twitter-media-downloader.git
 cd twitter-media-downloader/
 make
+twmd --user aborgljung --img
 ```
 
 
