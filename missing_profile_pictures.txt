@@ -1,55 +1,5 @@
 data/stop_the_steal.csv
 intermediate/stop_the_steal.jsonl
-HBwriterMike
-suZ_smith
-illusionfuzion
-FedSnap
-CDorkery
-vakrys
-Michelem1998
-SheilaChapa1
-mommawolf728
-BarrhavenGuy
-SeanTDel
-JenLawrence21
-Canary1st
-Schubes5
-USobusted
-12Tulip3
-impeachXiden46
-NE_JMo
-HacimRetnuh
-NoSurrender200
-hayden_baker3
-SeanTDel
-junkiebybravo
-CDorkery
-Morty_Fied
-suZ_smith
-Atheen_
-Zak_Wiseman
-H8theSteelers
-Sanddragger
-dominaVS
-rdiazj1
-NoSurrender200
-carolinapixel
-RJohnsonUSA
-KrushimTV
-TinaSea4
-robertpugl
-TheAngelofWrath
-FormerGuyisGone
-CDorkery
-mommawolf728
-LionessHeart777
-TheAmoralBard
-SMarieC11
-Bighammy6
-gayyNword
-CDorkery
-TheRealGOP
-NoSurrender200
 TMarie72223370
 mickifis
 AndyGibsonTV
@@ -62,7 +12,6 @@ HectorHuba88
 UghNotAgain
 TMarie72223370
 Cecilray32
-suZ_smith
 yigamoe
 zuzu2007
 glenkurby
@@ -86,16 +35,12 @@ _JesusOnline
 zuzu2007
 LarryDarrell3
 EshoreEric
-HBwriterMike
 PghBlackGold
 slimSHVDYxx
 ZMD1776KAG
 PharaohBender
 lbastura
-suZ_smith
-KrushimTV
 B__Booth
-gayyNword
 lbastura
 QueenHollyFay20
 Cecilray32
@@ -112,7 +57,6 @@ RogueQ5
 HipHopThinker
 CeltHard
 JanCookLive
-suZ_smith
 heymrgarrison
 GreyHaired07
 JoshwmlL
@@ -124,7 +68,6 @@ Hairdosbycandy
 Yeshua4Animals
 AimeeL28
 TheJohnStrand
-impeachXiden46
 IloveBush43
 da_bo121
 Conserve1st
@@ -157,11 +100,9 @@ jillannmiller
 SweetRawJoy
 Megalonio
 CaesarXIV
-Sanddragger
 SleinaDaniels
 DianaGLCPA
 Lambigirl
-NoSurrender200
 JeannetteHawke1
 Salina_Sells
 TakeOurMedia
@@ -180,7 +121,6 @@ glenkurby
 RichardJL7
 mickifis
 AshAlb1217
-NoSurrender200
 kinghenryp18
 TMarie72223370
 DCCalamity_US
@@ -192,7 +132,6 @@ MellyGosLightly
 afa1776
 stancil_luke
 Brenda74021975
-suZ_smith
 Catherine3684
 lucarp2_JBINMP
 JonT_H_I_C_C
@@ -220,9 +159,7 @@ dani_pep
 realCCrump
 JanCookLive
 JulieJ2020
-suZ_smith
 vlshields
-JenLawrence21
 mcleod
 GeorgiaFisCon
 FreeTheMitten
@@ -243,7 +180,6 @@ cocogigi
 Tbutterfly93
 CarolM39
 mariluciferraz
-Sanddragger
 boosteau
 B__Booth
 Frank_Solis
@@ -266,11 +202,9 @@ time2behappy101
 JulieJ2020
 VickiVares
 somedaygirl
-suZ_smith
 BethFis
 KyrstenOlson
 ImaLindatoo
-suZ_smith
 kliqfan1
 FredForTrump
 time2behappy101
@@ -290,7 +224,6 @@ ryanswalters73
 AcuarelaAriana
 stevewolf44
 Trip_Menchaca
-suZ_smith
 Lambigirl
 mrcram7952
 CaesarXIV
@@ -305,7 +238,6 @@ TechchartKk
 frank_lapolla
 PaulOttoNeumann
 mrcram7952
-JenLawrence21
 GSDdecoy12
 WannabeAnglican
 CultureKill
@@ -313,7 +245,6 @@ Alokla
 mrcram7952
 TerriTinsley3
 CultureKill
-rdiazj1
 JulieJ2020
 LarkinBelle
 CultureKill
@@ -331,7 +262,6 @@ JulieJ2020
 ryanswalters73
 kevinnass11
 sindel2u
-NoSurrender200
 followonparler
 ErinSha73076173
 Tereluca1
@@ -345,28 +275,21 @@ CanonguyOkla
 followonparler
 TechGeekRebel
 xerafin
-gayyNword
 followonparler
 HipHopThinker
 RommelRoo
-gayyNword
 followonparler
 PoliticallyAlt
 CaddieMan1974
 CMMV_vt
-gayyNword
 _SeamusOg
 AStropez
-rdiazj1
 Shelly36616139
-gayyNword
 build_sell_grow
 Real_AzKyle
 CryOnions
 Hiiitsmeo
 exChairmanAbdi
-gayyNword
-SheilaChapa1
 MelissaBurges7
 casaulycasaul
 LadySusette
@@ -407,7 +330,6 @@ CaddieMan1974
 NoKoolAide
 EricEG2017
 TheDaytonian937
-suZ_smith
 ErinSha73076173
 rschgeek3
 shakingbou1der
@@ -457,7 +379,6 @@ slimSHVDYxx
 jmrmom
 realLesHayes
 jmrmom
-suZ_smith
 artemis360
 RealMattCouch
 KylieJaneKremer
@@ -474,7 +395,6 @@ memeorandum
 DamnSnyder
 TheGypos
 mariaDE15422883
-mommawolf728
 daneslayer95
 ErnstBlofeld
 mattbrady775
@@ -516,12 +436,10 @@ VIPortalINC
 ItsaBreeze77
 Shah_Di_Lay
 PenneyVC
-suZ_smith
 Supremely_human
 Railgunbikes
 NottaSheep
 Terence61674259
-SeanTDel
 TrueBlue0107
 Trevman390
 RealMattCouch
@@ -561,8 +479,6 @@ evie_stocker
 thinlysourced
 Bluecappsun5bee
 wpatricia910
-JenLawrence21
-FedSnap
 RealMattCouch
 Mawam
 cindy_csomer37
@@ -576,7 +492,6 @@ plutzaman
 Ripchord12
 Xpompier77
 PoliticallyAlt
-suZ_smith
 RicVaDude
 glenkurby
 NatHale2020
@@ -861,7 +776,6 @@ Anthony54144242
 Jlk4USA
 RebelBlondeCA
 time2behappy101
-JenLawrence21
 MsEBL
 JACampbell30
 susancarleto
@@ -894,7 +808,6 @@ Mauvais_Fille
 abennett3
 JessaMooreMedia
 DawnofAlbion
-FedSnap
 the504ever
 DemocratsUp
 brianpmc1
@@ -917,7 +830,6 @@ taylorashland
 RonniSuzanne
 kafka_code
 USA45RED45
-suZ_smith
 JiNanGlasgow
 EMMA__732
 trg4496
@@ -948,7 +860,6 @@ bige2tcb
 sahdood999
 USA45RED45
 raydkent
-mommawolf728
 JosephMRyan1
 GLisehora
 JMH_RULES
@@ -990,7 +901,6 @@ SayinWhatever
 jjalameda
 JosephMRyan1
 VzlansForTrump
-mommawolf728
 queenBbrooklyn
 Builder26
 Alokla
@@ -1050,7 +960,6 @@ ActualEnoch
 NatalieJHarp
 E_Marie23
 KennyW_NLR
-Sanddragger
 Thebelew
 TheAntiSatan
 DeniseTXProud
@@ -1106,7 +1015,6 @@ MiTrump2020
 Handsom10427176
 husbybee
 american_crown
-suZ_smith
 husbybee
 patrickcomack
 shakingbou1der
@@ -1117,7 +1025,6 @@ wontoo3
 BlofeldErnesto
 JoshwmlL
 KevinMeador4
-LionessHeart777
 3r1nG
 DeniseTXProud
 SwampFox_99
@@ -1248,9 +1155,7 @@ MelissaLeeTowne
 autoneuroticZEE
 andy80396649
 JMH_RULES
-mommawolf728
 Never0u812
-SeanTDel
 BREWcorpSoCal
 Solegirl73
 cucumber1emons
@@ -1293,7 +1198,6 @@ UNLVRebelGrl
 realGregRamsey
 DoreeOhhhh
 MT4America
-suZ_smith
 elainemaiphan22
 GalMacon
 RickPhill
@@ -1400,7 +1304,6 @@ snjumoka
 mariasgoodtaste
 DianaVS02
 Price_Williams
-FedSnap
 ahmed_serougi
 SallysMom
 hrumpole
@@ -1507,7 +1410,6 @@ WhiteyZero
 Vedant36394787
 CindyColbert
 CultureKill
-mommawolf728
 PatientTexas
 Alokla
 DPanasewich
@@ -1531,7 +1433,6 @@ BoilerPhin
 honeyhush29
 ScottWitlin
 JuggaloJair
-BarrhavenGuy
 JohnBender2016
 kylie_johnston
 CindyB_717
@@ -1561,16 +1462,13 @@ BryanMills21
 JKHomestead
 JulieJ2020
 TheresaMaurer2
-BarrhavenGuy
 USA45RED45
 AdamVerecundium
 SheTexas1
 PaulUS8617
-NE_JMo
 malcolm844
 EsterMes
 CaddieMan1974
-BarrhavenGuy
 dreambeenyou
 dennisjromero
 adkinsh02
@@ -1578,10 +1476,8 @@ Shoshi
 SusanPosey3
 Ramza_2
 crowbahr
-USobusted
 peaceluvmusic65
 ViKu1111
-BarrhavenGuy
 Cecil3695Cecil
 danielledsouzag
 NMGSports
@@ -1592,7 +1488,6 @@ BryanMills21
 scottyaloha
 cook_2281
 rockinangelx
-JenLawrence21
 artworkbylaurie
 USA45RED45
 husbybee
@@ -1633,7 +1528,6 @@ chiplover44
 _brett_grant_
 fartcharmer
 SpiderJesusBR
-JenLawrence21
 AbeWyse
 HunterRay
 husbybee
@@ -1674,7 +1568,6 @@ DamnSnyder
 hisaudi1960
 BreakthematrixM
 tech_dyno
-JenLawrence21
 MT4America
 lelia_raynal
 Catenacciaro
@@ -1717,7 +1610,6 @@ benjaninja2033
 phillygirlagain
 distilledtunes
 TheDaytonian937
-Sanddragger
 OnofrioSarah
 KPlorable
 srrabon_
@@ -1750,7 +1642,6 @@ GunsAddict
 beaner803
 jazziehill
 TheNewGOP21
-JenLawrence21
 Pammy_63
 WannabeAnglican
 CryptoStockton
@@ -1893,7 +1784,6 @@ Sharon9359
 SWatsonMAGA
 chanel_chair
 RebeccaJ6489
-LionessHeart777
 LiamSchubel
 zclaudy
 CarolHello1
@@ -1952,7 +1842,6 @@ Brian_Boroimhe
 LiamSchubel
 Ben74678551
 JosephMRyan1
-JenLawrence21
 Vedant36394787
 DenaDBJ
 bobdirects
@@ -2050,7 +1939,6 @@ SUMMITTOUCH
 wolf_casanova
 stevenala
 First_Choice
-LionessHeart777
 brockemartin
 Yeshua4Animals
 wales_voice
@@ -2277,7 +2165,6 @@ ChickieNuggetts
 Alokla
 SandiDeMita
 h_btruth
-impeachXiden46
 lslth2
 sundancergroup
 Rhodesdale1
@@ -2524,7 +2411,6 @@ averilheath1
 Karsten76
 TheDaytonian937
 dr_tweedy
-JenLawrence21
 jdmorgan11
 JenniferHerbs
 ThisScaryWorld
@@ -2618,7 +2504,6 @@ EagleEdMartin
 PatriotintheUSA
 Mgrace0601
 LeapOfTruth
-USobusted
 ruanurd
 CamsEtc
 DemocratsUp
@@ -2693,7 +2578,6 @@ JewsForTrump
 SaintPa01959778
 autoneuroticZEE
 14thcenturygal
-SMarieC11
 RealMattCouch
 Delana27235502
 Robert_Milton36
@@ -2735,7 +2619,6 @@ SamAdamsTPP
 JanetSt0831
 SusanPosey3
 Shah_Di_Lay
-USobusted
 Woody_Driver
 punditOcrat
 Calim1701
@@ -2745,7 +2628,6 @@ SocialGuru007
 Dr_S_A_Malcolm
 nels_2020_
 SusanBernier910
-Morty_Fied
 cduerksen
 Danpat831
 amlphx
@@ -2763,7 +2645,6 @@ TakeOurMedia
 blanerobinson
 NASCARNAC
 SamAdamsTPP
-FedSnap
 NatHale2020
 guardian449
 SusanPosey3
@@ -2980,7 +2861,6 @@ ErnstBlofeld
 lindyjoy333
 beachgirl45fd
 UPTOWNGIRL2008
-Atheen_
 GroupHackathon
 KikiKAGChitown
 seansramblings
@@ -3040,7 +2920,6 @@ preacherthoward
 JosephMRyan1
 commonsensenon
 SidneyJCJunior
-Morty_Fied
 JenniferHerbs
 ImaLindatoo
 Trumpified9
@@ -3067,7 +2946,6 @@ hisMrs2005
 ChelNightingale
 Toni848Toni
 GoletaVeleta
-USobusted
 _brett_grant_
 Katina_139
 PoliticalMemesC
@@ -3170,7 +3048,6 @@ SirAzTop
 POTUS_UBRA
 MoCoGOPClub
 HRC4Prison
-FedSnap
 SouthernGrl333
 Michael15381817
 kriegsm
@@ -3363,7 +3240,6 @@ chasingstarz
 LoganNewberry22
 Philiplovespace
 LItllisa119
-FedSnap
 dailycircuspod
 tree_respecter
 CelesteHolsing
@@ -3404,7 +3280,6 @@ candicedodge
 Esther28007
 Esther28007
 bigleaguebunny
-USobusted
 GrantGee5
 rhondampatrick
 BryanMills21
@@ -3781,12 +3656,10 @@ KMR_Studios
 adkinsh02
 albualexandrug1
 AnnieBthree
-RJohnsonUSA
 Brian_Boroimhe
 WWBlondieDo
 Faceboo64753575
 jravenls
-Morty_Fied
 robertbrack
 Cloey74
 OLulaEstaPreso
@@ -3796,7 +3669,6 @@ GiraffesInc
 Richard_Skeet
 ZigTj
 PolitiShox
-RJohnsonUSA
 RaphaelHicks2
 IndiosSoldier
 DanielleSacra
@@ -3854,7 +3726,6 @@ EudaDemonia
 RosenbloomPaula
 MarcBaer5
 TheUnrealMattR
-impeachXiden46
 MikeHawkRulz
 DavidBugnon
 MarcBaer5
@@ -3876,7 +3747,6 @@ Trumper2020
 luhya_pounds
 LuxandraV
 TheUnrealMattR
-RJohnsonUSA
 luhya_pounds
 CoachFoz
 RogersReality0
@@ -3937,7 +3807,6 @@ giggles22
 blang071
 AmericanFreedo2
 UdunMonster
-RJohnsonUSA
 peaceluvmusic65
 ConciseInvestor
 TrumpMomma
@@ -3948,7 +3817,6 @@ trg4496
 AmericanFreedo2
 ScoutieUSA
 RogersReality0
-RJohnsonUSA
 PeteCubaLibre
 Abeaches1
 deaconrey
@@ -3974,7 +3842,6 @@ peaceluvmusic65
 JoshwmlL
 Abeaches1
 realmajordan
-RJohnsonUSA
 RedSoxGrl78
 gomurphy
 Deidrelee55
@@ -4070,7 +3937,6 @@ DanielleSacra
 pkmcewen
 Abeaches1
 lauratexasstyle
-FedSnap
 vbspurs
 Luvsgsds
 Supremely_human
@@ -4267,7 +4133,6 @@ beadles_andrew
 KelsiCrew
 jsutherland1008
 mooselips
-NoSurrender200
 JosephMRyan1
 Conserve1st
 Karrielt
@@ -4346,7 +4211,6 @@ TheJohnStrand
 DebraDudman
 Calim1701
 antonchigu
-mommawolf728
 IndiosSoldier
 SeniorBoobies
 JosephMRyan1
@@ -4507,12 +4371,10 @@ LessGovMoreFun
 Abeaches1
 mijanartzone
 JohnnyLazer4
-LionessHeart777
 DavidBugnon
 AmericanFreedo2
 laurafortified
 touchedwithfire
-NE_JMo
 ChiefTrumpster
 garrettmccaff
 dixiegalpatriot
@@ -4542,7 +4404,6 @@ ShinyPenny3
 McReadyLaurieA
 bjiammbudda
 MifwicH
-RJohnsonUSA
 AmericanFreedo2
 RTM_OLD21PLAYA
 mochi1089083017
@@ -4634,7 +4495,6 @@ MichaELofYHWH
 TruthDwellsDeep
 njurica11
 maryantunez4515
-LionessHeart777
 Emaxx2044
 Sports_24_7_365
 Ladybosstycoon1
@@ -4686,7 +4546,6 @@ ItsARelay
 Kermit46511416
 matandsher
 iRoboHamster
-NoSurrender200
 PolitiShox
 barkloud
 ellie2211
@@ -4702,7 +4561,6 @@ MAGAeducator
 JosephMRyan1
 CMoiraM
 OhCanadaLady
-mommawolf728
 NoNewNormal72
 FriedDeep
 branchman68
@@ -4761,7 +4619,6 @@ koooski
 surrfinTexas
 sunsetsq2
 SpaceFromGreece
-LionessHeart777
 Ollie_621
 EagleEdMartin
 WackoBird
@@ -5005,7 +4862,6 @@ ApplauseRick
 Ms_Erika74
 Fab4Mafia
 SouravP89504306
-NoSurrender200
 CivilityWanted
 MichaelMercerX
 PatientTexas
@@ -5113,7 +4969,6 @@ PrivacyCamp
 spiritworldfilm
 ReinaldoTorral2
 phall1069
-NoSurrender200
 SmashCarm
 JosephMRyan1
 Keberlein
@@ -5225,7 +5080,6 @@ MrsHuney8814
 Brian_Boroimhe
 EyesOpenInTexas
 WGAL8photog_cw
-LionessHeart777
 JosephMRyan1
 Alexand07013300
 CindyB_717
@@ -5411,7 +5265,6 @@ angels8000
 AthenesLulu
 JosephMRyan1
 Brian_Boroimhe
-TheAngelofWrath
 SpringSteps
 JosephMRyan1
 ZanderFromNola
@@ -5743,7 +5596,6 @@ kona24
 BasharTeg
 ChrissMari
 judeacuff
-RJohnsonUSA
 LAcreole504
 BreakthematrixM
 RoniWarner13
@@ -5783,7 +5635,6 @@ SKirkPierzchala
 FitzyLee76
 MichaelGreen77
 RebelBlondeCA
-LionessHeart777
 goshenhawk1
 JanetSt0831
 Brian_Boroimhe
@@ -5932,7 +5783,6 @@ PenneyVC
 Solegirl73
 Judge_Smails_xx
 TheDaytonian937
-NoSurrender200
 Caiophora
 PenneyVC
 Brian_Boroimhe
@@ -5971,7 +5821,6 @@ SmallBiz4Trump
 y_u_offended
 Charles29629184
 Brian_Boroimhe
-NoSurrender200
 unitedfornow
 rey_lowe
 IndiosSoldier
@@ -6003,7 +5852,6 @@ EudaDemonia
 CancerTruthNews
 Justicefor91121
 MrsShuman1
-RJohnsonUSA
 goshenhawk1
 TheDaytonian937
 Brian_Boroimhe
@@ -6018,11 +5866,9 @@ Mawam
 Themom519
 ginza_estate
 Brian_Boroimhe
-NoSurrender200
 izzyrz
 willchamberlain
 Suziflea
-NoSurrender200
 DianaMGallo
 APLMom
 walkthelineusa
@@ -6068,7 +5914,6 @@ DianeBa23462698
 BrendaDoolin
 mlsline
 RtTwu
-NoSurrender200
 USA45RED45
 debster7301
 agdude69
@@ -6128,7 +5973,6 @@ BrendaDoolin
 Monica4Trump
 sumofagum
 BryanMills21
-NoSurrender200
 GaysForTrumpTN
 AnnMorrison3
 hansauf
@@ -6154,7 +5998,6 @@ mlsline
 robolivo
 RobbyMontoya
 TXAggie4Christ
-RJohnsonUSA
 hispanicmom
 sergioalvarado
 brockemartin
@@ -6216,7 +6059,6 @@ TXAggie4Christ
 kaylibmusic
 CubanRepub1231
 TheLoyalTen
-LionessHeart777
 EagleEdMartin
 scottyaloha
 ErnstBlofeld
@@ -6240,14 +6082,11 @@ dford61
 myrightsR
 locker_eva
 RemoveFromPower
-NoSurrender200
 ShinyPenny3
-NoSurrender200
 ShitTonsOFun
 dford61
 RfWheels3015
 Judy777333
-NoSurrender200
 girlyroro
 look_its_mike91
 dford61
@@ -6336,7 +6175,6 @@ brockemartin
 bobdirects
 Monica4Trump
 jonathan_wcm
-mommawolf728
 StephStance
 irishjay
 andreakayeshow
@@ -6377,7 +6215,6 @@ Katina_139
 Flavia1024
 HBHPatriot1
 RebelBlondeCA
-Schubes5
 JanCookLive
 djdiddles37
 YDCtaco
@@ -6440,8 +6277,6 @@ Monica4Trump
 MCCNP
 Dismukes
 EudaimoniaLever
-Atheen_
-Schubes5
 scottyaloha
 DanielGoodwyn
 Condor_Law
@@ -6718,7 +6553,6 @@ patrickegan3
 RouterGray
 GlaucioCampos
 50grey50
-RJohnsonUSA
 jnewiMAGA
 emeirelles
 RebeccaL1955
@@ -6856,7 +6690,6 @@ Christy45379612
 FranksLawnmower
 Flaseashellgrl
 Lou02703
-LionessHeart777
 RobbyMontoya
 2717PRODUCTIONS
 BREWcorpSoCal
@@ -6983,7 +6816,6 @@ BoggJoe
 TheFracDog
 elraphbo
 PoliticallyAlt
-mommawolf728
 Str2theR
 ladybug_jean
 RobSmithson6
@@ -7038,7 +6870,6 @@ BradFlook
 EagleEdMartin
 AlphaSenshi
 TweepOut
-RJohnsonUSA
 KidsAndSoccer1
 bigledmachine
 browntown1776
@@ -7135,7 +6966,6 @@ Wkyhilltopper
 Just_a_mom_00
 RealLWHecker
 TinTin_
-Sanddragger
 Tom_Duty
 njurica11
 SamAdamsTPP
@@ -7150,7 +6980,6 @@ ZorroPachy
 TimeToActNow7
 MCCNP
 ScottGiorgini
-Schubes5
 GoDaisy
 BryanMills21
 scottyaloha
@@ -7310,7 +7139,6 @@ jabwood_wood
 milscarf
 rosannepm
 BranimalDrums
-mommawolf728
 autoneuroticZEE
 TTopczewski
 Aleka1462
@@ -7419,7 +7247,6 @@ BryanMills21
 navyChiefalways
 wlhuber
 caddie92
-NoSurrender200
 NMLifestyles
 deplorablefan
 Just_a_mom_00
@@ -7535,8 +7362,6 @@ KohLoyal
 TNVoteRed777
 scottyaloha
 ZorroPachy
-mommawolf728
-Sanddragger
 AlphaSenshi
 deplorabletim
 MaryMPatriot1
@@ -7548,14 +7373,12 @@ scottyaloha
 ScottGiorgini
 kudrna_wes
 ThyConsigliori
-Sanddragger
 theworldin2020
 anguillablue1
 Wkyhilltopper
 pammypam4
 BryorRiver
 conserv_bri
-Sanddragger
 dford61
 theworldin2020
 Viewer_47
@@ -7568,13 +7391,11 @@ ACarr818
 SharonNplz
 CloneCMDR_Bly
 sweetakin
-RJohnsonUSA
 MichaelGreen77
 Kennykwh1120
 anguillablue1
 ScottGiorgini
 AlphaSenshi
-Sanddragger
 151_gene
 JeffChanceUSA
 doremind
@@ -7619,7 +7440,6 @@ pinkngreen3
 vielned
 SuspendedTruth
 Tigersfan24
-RJohnsonUSA
 deplorabletim
 KingFauci
 DCCalamity_US
@@ -7636,14 +7456,12 @@ MrsJanieDoe
 TexaslaLady
 vielned
 piratesbelay
-RJohnsonUSA
 Tigersfan24
 realmajordan
 KcDepl
 doukhobour
 darct777
 DBagAdams
-HBwriterMike
 MightyCassandra
 nettajdoss
 AF77176913
@@ -8005,7 +7823,6 @@ Schroonman
 rebelwitacauz
 RouterGray
 realmajordan
-Sanddragger
 RouterGray
 Leeees_67
 KcDepl
@@ -8048,7 +7865,6 @@ TheMIAReporter1
 sdewane
 _Gemini_33
 0spfinsib
-Sanddragger
 TheMIAReporter1
 cuatromom1970
 CApitt02
@@ -8175,7 +7991,6 @@ laurennotconrad
 Brian_Boroimhe
 RouterGray
 alwayswithTrump
-HBwriterMike
 the3AMme
 KcDepl
 ga_girls_rule
@@ -8217,7 +8032,6 @@ LynnPlanchard
 CosmicChristHz
 DurpState
 JustLoreli77
-Sanddragger
 RouterGray
 PTAcosta
 tiraDom78
@@ -8263,7 +8077,6 @@ TRIP_USMC
 Coast__Coast
 TheSilentWar17
 lancelion
-12Tulip3
 edbc21
 PatientTexas
 TNVoteRed777
@@ -8272,7 +8085,6 @@ KylieJaneKremer
 LynnPlanchard
 BeeJayMatson
 Saardekuisvrouw
-HBwriterMike
 enufs_enuf
 IndySpanglish
 DestructiveNews
@@ -8316,7 +8128,6 @@ chasingman
 TruthDwellsDeep
 Christalball93
 the504ever
-impeachXiden46
 BeeJayMatson
 RealJCochran
 YDCtaco
@@ -8376,10 +8187,8 @@ Aquila7
 realreconscout
 DJacobs0404
 CarlosJReyesFL
-Sanddragger
 dfscavenger
 romainestchives
-Sanddragger
 _Kim37
 RouterGray
 151_gene
@@ -8504,7 +8313,6 @@ Chanel4646
 Gwendragon
 IsraelUSAlove
 anguillablue1
-12Tulip3
 MsAlachuaCounty
 BloffoR
 KSSRoberts
@@ -9080,7 +8888,6 @@ Gertrud29409036
 alexanderrogge
 NoKoolAide
 laura________17
-Schubes5
 CaddieMan1974
 producermillian
 CaddieMan1974
@@ -9272,7 +9079,6 @@ MAGARebelRadio
 lil_lightworker
 lawriter33
 ForMotionCreatv
-Morty_Fied
 SharonNplz
 trust265198201
 MaxineR2911
@@ -9316,7 +9122,6 @@ Rosen_Riche
 OleskyJustine
 TheHorrorDude
 OfficeOfKrista
-Atheen_
 PghBlackGold
 glo_mojo
 OleskyJustine
@@ -9564,7 +9369,6 @@ jmf4101
 Trumpertarian
 covfefethoughts
 edbc21
-Atheen_
 theworldin2020
 RobertY28178586
 GoPdetractor
@@ -9645,7 +9449,6 @@ KRAVCHICK
 afa1776
 sami_weiss24
 tweetypickler
-Morty_Fied
 1Sandy_N_Austin
 TheHouzi
 EliPagePhoto
@@ -10130,7 +9933,6 @@ JAdamany
 kittysf
 GabbiLiebert
 JBoningtonJag
-RJohnsonUSA
 KermisVoyager97
 GabbiLiebert
 JBoningtonJag
@@ -10221,7 +10023,6 @@ PeteCubaLibre
 bamabailey42
 EagleEdMartin
 JBoningtonJag
-12Tulip3
 Ollie_621
 loveabletom1
 RPEnheim
@@ -11103,7 +10904,6 @@ ilovepuki2
 MsEBL
 nojustmax
 europanzertank
-Morty_Fied
 SocialismDead
 DanShreffler
 MCCNP
@@ -11313,7 +11113,6 @@ JohnKasik
 e_Mike_Robinson
 MeryRobins
 rockinangelx
-impeachXiden46
 eyehaightnazis
 e_Mike_Robinson
 DianaGLCPA
@@ -11504,7 +11303,6 @@ Saorsa1776
 mistynites69
 Mgon
 mbove12
-RJohnsonUSA
 CancerTruthNews
 mbove12
 Bamabubbajones
@@ -11532,13 +11330,11 @@ AmericasKeepers
 Mgon
 MblingBrdFrk
 CamsEtc
-RJohnsonUSA
 smallsky6
 victoriaklemp
 nerdy_gypsy
 athelass
 Ms_Erika74
-RJohnsonUSA
 SportsNewsTN
 Harper334036
 muddawg76
@@ -11547,13 +11343,11 @@ willjennings60
 CamsEtc
 RobertY28178586
 Viviera75Viera
-RJohnsonUSA
 _liam_ford_
 therealscooter6
 PatCough
 AnnaSophia777
 muddawg76
-RJohnsonUSA
 zacharydavis08
 prolibertate7
 CaddieMan1974
@@ -11941,7 +11735,6 @@ Charles29629184
 Freepartyameri
 iSassafras
 Pitbull_Patriot
-RJohnsonUSA
 MblingBrdFrk
 Freepartyameri
 Hrafn84
@@ -12043,11 +11836,8 @@ HBHPatriot1
 ItsaBreeze77
 GMA9591
 emeirelles
-RJohnsonUSA
 UPTOWNGIRL2008
 janconcern
-RJohnsonUSA
-RJohnsonUSA
 bobiteman
 merrijulaz
 AF77176913
@@ -12552,7 +12342,6 @@ DustyDoLo
 customrogue
 realmajordan
 Fredthefrog15
-12Tulip3
 SeptembersRain
 starlola2
 Daft_Disaster
@@ -12718,7 +12507,6 @@ romainestchives
 DustyDoLo
 jgwcrna
 USAMediaAwards
-12Tulip3
 threadreaderapp
 MymTyme
 Fort1791
@@ -12821,7 +12609,6 @@ EstesRC
 theomark
 KMCaton
 DGAFinwesttexas
-12Tulip3
 NotBBCNewz
 A_M_Sammons
 e_Mike_Robinson
@@ -12856,7 +12643,6 @@ alcardfan
 DougHebert1st
 Charles29629184
 EagleEdMartin
-12Tulip3
 theomark
 CelesteHolsing
 KMCaton
@@ -13437,7 +13223,6 @@ usquequo_domine
 aflyingmonk3y
 NnPnemck
 PAULIBABBA
-Morty_Fied
 FireandFinance
 AndikaTheHun
 Charles29629184
@@ -13914,7 +13699,6 @@ jl_213
 stitchersflock
 RhondaHolland
 JenFarkas2
-12Tulip3
 SportsNewsTN
 Paulie_Z_2130
 Charles29629184
@@ -14488,7 +14272,6 @@ idreadpolitics
 TonyaAnn6811
 GeekTracker
 Mgon
-Morty_Fied
 Mgon
 wagenfire1
 nawilliams34
@@ -14562,15 +14345,8 @@ CeleryCaraway
 KenGreenberg
 data/swexit.csv
 intermediate/swexit.jsonl
-_Amnexis
 data/yttrandefrihet.csv
 intermediate/yttrandefrihet.jsonl
-jagbubblar
-MagAst65
-InformationCe19
-JMAEriksson
-socialdemonerna
-Denada39223473
 om_till
 Fredde84147949
 KarroFridell
