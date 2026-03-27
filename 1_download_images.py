@@ -10,8 +10,7 @@ bearer_token = open('bearer_token', 'r').read().strip()
 
 print("bearer_token: ", bearer_token)
 
-# usernames_file = 'missing_profile_pictures.txt'
-usernames_file = 'missing_profile_pictures_stop_the_steal.txt'
+usernames_file = 'missing_profile_pictures.txt'
 
 with open(usernames_file, 'r') as f:
     usernames = [line.strip() for line in f if line.strip()]
@@ -29,13 +28,14 @@ for username in usernames:
         if 'data' in resp and resp['data']:
             img_url = resp['data'][0]['profile_image_url']
             urllib.request.urlretrieve(img_url, jpg_file_name)
+        if not os.path.exists(jpg_file_name):
+            with open(jpg_file_name, 'w') as fp:
+                pass
+            print(f"Created an empty file for {username}")
             if not os.path.exists(jpg_file_name):
-                open(jpg_file_name, 'a').close()
-                print(f"Created an empty file for {username}")
-                if not os.path.exists(jpg_file_name):
-                    print("Huh? I created an empty file!")
-            else:
-                print(f"Download a profile picture from {username}")
+                print("Huh? I created an empty file!")
+        else:
+            print(f"Download a profile picture from {username}")
     else:
         print(f"file {username} does already exist, skipping it ...")
 

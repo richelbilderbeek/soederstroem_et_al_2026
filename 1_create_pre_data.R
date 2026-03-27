@@ -54,9 +54,6 @@ create_test_text <- function() {
 get_data_files <- function() {
   csv_file_names <- list.files(path = "data", pattern = "*.csv", full.names = TRUE)
   testthat::expect_equal(3, length(csv_file_names))
-
-  # DEBUG: only 'stop_the_steal'
-  csv_file_names <- stringr::str_subset(csv_file_names, "stop_")
   csv_file_names
 }
 
@@ -164,7 +161,7 @@ convert_to_jsonl <- function(
 for (csv_file_name in get_data_files()) {
   jsonl_file_name <- to_intermediate_file_name(csv_file_name)
   dir.create(dirname(jsonl_file_name), showWarnings = FALSE)
-  message(jsonl_file_name)
+  # message(jsonl_file_name)
   convert_to_jsonl(csv_file_name = csv_file_name, jsonl_file_name = jsonl_file_name)
   testthat::expect_true(file.exists(jsonl_file_name))
 }
