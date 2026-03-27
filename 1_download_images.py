@@ -7,7 +7,9 @@ import os
 bearer_token = open('bearer_token', 'r').read().strip()
 
 print("bearer_token: ", bearer_token)
-usernames_file = 'missing_profile_pictures.txt'
+
+# usernames_file = 'missing_profile_pictures.txt'
+usernames_file = 'missing_profile_pictures_stop_the_steal.txt'
 
 with open(usernames_file, 'r') as f:
     usernames = [line.strip() for line in f if line.strip()]
