@@ -36,7 +36,7 @@ for username in usernames:
                 print("Huh? I created an empty file!")
         else:
             print(f"Download a profile picture from {username}")
-    else:
-        print(f"file {username} does already exist, skipping it ...")
+    #else:
+    #    print(f"file {username} does already exist, skipping it ...")
 
 

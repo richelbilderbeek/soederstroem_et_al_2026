@@ -82,6 +82,11 @@ testthat::expect_equal(
   "intermediate/swexit.jsonl"
 )
 
+create_image_path <- function(screen_name) {
+  # paste0("data/", stringr::str_to_lower(screen_name), ".jpg")
+  paste0("data/", screen_name, ".jpg")
+}
+
 convert_to_jsonl <- function(
   csv_file_name,
   jsonl_file_name
@@ -121,9 +126,6 @@ convert_to_jsonl <- function(
 
   jsonl_text <- rep(x = "", times = n_lines)
 
-  create_image_path <- function(screen_name) {
-    paste0("data/", stringr::str_to_lower(screen_name), ".jpg")
-  }
 
   do_list_missing_images <- TRUE
   if (do_list_missing_images) {
