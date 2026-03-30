@@ -5,3 +5,4 @@ import pprint
 m3 = M3Inference()
 pred = m3.infer('./intermediate/yttrandefrihet_resized.jsonl')
 pprint.pprint(pred)
+
