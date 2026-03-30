@@ -104,6 +104,9 @@ read_csv <- function(csv_file_name) {
   t$name <- stringr::str_remove_all(stringi::stri_enc_toascii(t$name), "\032")
   t$description <- stringr::str_remove_all(stringr::str_remove_all(stringi::stri_enc_toascii(t$description), "\032"), "\n")
 
+  # Remove quotes, as JSONL parser gets confused
+  t$description <- stringr::str_remove_all(t$description, "\"")
+
   t <- t[which(t$id != ""), ]
   testthat::expect_equal(0, sum(t$id == ""))
 
@@ -122,6 +125,13 @@ read_csv <- function(csv_file_name) {
 
 testthat::expect_true(nrow(read_csv(csv_file_name = get_data_files()[1])) > 1)
 
+remove_empty_lines <- function(text) {
+  text[nchar(text) != 0]
+}
+text <- c("A", "", "B")
+testthat::expect_equal(2, length(remove_empty_lines(text)))
+
+
 convert_to_jsonl <- function(
   csv_file_name,
   jsonl_file_name
@@ -138,12 +148,8 @@ convert_to_jsonl <- function(
   for (i in seq_len(n_lines)) {
     img_path <- create_image_path(t$screen_name[i])
     # message(img_path)
-    if (!file.exists(img_path)) {
-      stop("ERROR: I exists. I may be empty")
-      break
-    }
     # Accounts without a profile picture are skipped
-    if (!file.exists(to_intermediate_file_name(img_path))) {
+    if (!file.exists(img_path)) {
       next
     }
     jsonl_text[i] <- create_line(
@@ -155,6 +161,7 @@ convert_to_jsonl <- function(
       img_path = img_path
     )
   }
+  jsonl_text <- remove_empty_lines(jsonl_text)
   readr::write_lines(jsonl_text, jsonl_file_name)
 }
 
@@ -185,10 +192,14 @@ message("DEBUG: use only yttrandefrihet")
 csv_file_names <- stringr::str_subset(csv_file_names, "yttrandefrihet")
 
 for (csv_file_name in csv_file_names) {
+  message("csv_file_name: ", csv_file_name, " (", length(readr::read_lines(csv_file_name)), " lines)")
+
   jsonl_file_name <- to_intermediate_file_name(csv_file_name)
   dir.create(dirname(jsonl_file_name), showWarnings = FALSE)
   # message(jsonl_file_name)
   convert_to_jsonl(csv_file_name = csv_file_name, jsonl_file_name = jsonl_file_name)
   testthat::expect_true(file.exists(jsonl_file_name))
+  message("jsonl_file_name: ", jsonl_file_name, " (", length(readr::read_lines(jsonl_file_name)), " lines)")
 }
+
 
