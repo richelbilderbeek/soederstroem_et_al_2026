@@ -148,7 +148,6 @@ convert_to_jsonl <- function(
 
   for (i in seq_len(n_lines)) {
     img_path <- create_image_path(t$screen_name[i])
-    # message(img_path)
     # Accounts without a profile picture are skipped
     if (!file.exists(img_path)) {
       next
@@ -182,22 +181,15 @@ show_missing_images <- function(csv_file_name) {
       message(screen_name)
       n <- n + 1
     }
-    #if (n == 50) return (42)
   }
 }
 
 csv_file_names <- get_data_files()
 
-# Select only yttrandefrihet
-message("DEBUG: use only stop_the")
-csv_file_names <- stringr::str_subset(csv_file_names, "stop_the")
-
 for (csv_file_name in csv_file_names) {
   message("csv_file_name: ", csv_file_name, " (", length(readr::read_lines(csv_file_name)), " lines)")
-
   jsonl_file_name <- to_intermediate_file_name(csv_file_name)
   dir.create(dirname(jsonl_file_name), showWarnings = FALSE)
-  # message(jsonl_file_name)
   convert_to_jsonl(csv_file_name = csv_file_name, jsonl_file_name = jsonl_file_name)
   testthat::expect_true(file.exists(jsonl_file_name))
   message("jsonl_file_name: ", jsonl_file_name, " (", length(readr::read_lines(jsonl_file_name)), " lines)")
