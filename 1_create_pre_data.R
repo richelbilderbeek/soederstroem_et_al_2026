@@ -1,12 +1,5 @@
 #!/bin/env Rscript
 
-# Maximum numbers of rows to keep
-max_n_rows <- NA
-# max_n_rows <- 22
-
-empty_image_path <- "data/empty_image.jpg"
-empty_reszed_image_path <- "intermediate/empty_image.jpg"
-
 create_test_line <- function() {
   "{\"id\": \"720389270335135745\", \"name\": \"The Web Conference\", \"screen_name\": \"TheWebConf\", \"description\": \"The Web Conference Series (formerly WWW) ||  #TheWebConf 2019\", \"lang\": \"en\", \"img_path\": \"./test/pic/9h1m2705_400x400.jpg\"}"
 }
@@ -103,11 +96,6 @@ read_csv <- function(csv_file_name) {
 
   t <- readr::read_csv(file = csv_file_name, show_col_types = FALSE)
 
-  # Shortening the data for testing
-  if (!is.na(max_n_rows)) {
-    t <- t[1:max_n_rows, ]
-  }
-
   # Transforming data
   t$id <- as.character(t$id)
 
@@ -190,7 +178,13 @@ show_missing_images <- function(csv_file_name) {
   }
 }
 
-for (csv_file_name in get_data_files()) {
+csv_file_names <- get_data_files()
+
+# Select only yttrandefrihet
+message("DEBUG: use only yttrandefrihet")
+csv_file_names <- stringr::str_subset(csv_file_names, "yttrandefrihet")
+
+for (csv_file_name in csv_file_names) {
   jsonl_file_name <- to_intermediate_file_name(csv_file_name)
   dir.create(dirname(jsonl_file_name), showWarnings = FALSE)
   # message(jsonl_file_name)
@@ -198,9 +192,3 @@ for (csv_file_name in get_data_files()) {
   testthat::expect_true(file.exists(jsonl_file_name))
 }
 
-
-if (1 == 2) {
-
-  csv_filename <- get_data_files()[1]
-
-}

@@ -7,6 +7,10 @@
 # - test/data_resized.jsonl
 # - test/pic_resized/
 
+python scripts/preprocess.py --source_dir data --output_dir intermediate --jsonl_path intermediate/yttrandefrihet.jsonl --jsonl_outpath intermediate/yttrandefrihet_resized.jsonl --verbose
+echo "DEBUG: only yttrandefrihet"
+echo "DEBUG: stop"
+exit 42
 
 # Does most of the images
 python scripts/preprocess.py --source_dir data --output_dir intermediate --jsonl_path intermediate/stop_the_steal.jsonl --jsonl_outpath intermediate/stop_the_steal_resized.jsonl --verbose
