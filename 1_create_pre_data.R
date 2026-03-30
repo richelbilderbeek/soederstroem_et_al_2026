@@ -4,6 +4,9 @@
 max_n_rows <- NA
 # max_n_rows <- 22
 
+empty_image_path <- "data/empty_image.jpg"
+empty_reszed_image_path <- "intermediate/empty_image.jpg"
+
 create_test_line <- function() {
   "{\"id\": \"720389270335135745\", \"name\": \"The Web Conference\", \"screen_name\": \"TheWebConf\", \"description\": \"The Web Conference Series (formerly WWW) ||  #TheWebConf 2019\", \"lang\": \"en\", \"img_path\": \"./test/pic/9h1m2705_400x400.jpg\"}"
 }
@@ -83,16 +86,21 @@ testthat::expect_equal(
 )
 
 create_image_path <- function(screen_name) {
+  testthat::expect_equal(1, length(screen_name))
+  testthat::expect_true(is.character(screen_name))
+  testthat::expect_true(nchar(screen_name) > 0)
   # paste0("data/", stringr::str_to_lower(screen_name), ".jpg")
   paste0("data/", screen_name, ".jpg")
 }
 
-convert_to_jsonl <- function(
-  csv_file_name,
-  jsonl_file_name
-) {
+testthat::expect_equal("data/test.jpg", create_image_path("test"))
+
+#' Read the complete csv that contains the accounts of interest
+#' @return a cleaned-up table
+read_csv <- function(csv_file_name) {
   testthat::expect_equal(1, length(csv_file_name))
   testthat::expect_true(file.exists(csv_file_name))
+
   t <- readr::read_csv(file = csv_file_name, show_col_types = FALSE)
 
   # Shortening the data for testing
@@ -121,33 +129,35 @@ convert_to_jsonl <- function(
   t[which(is.na(t$lang)), ]$lang <- "un"
   t <- t[which(t$lang != ""), ]
   testthat::expect_equal(0, sum(t$lang == ""))
+  t
+}
+
+testthat::expect_true(nrow(read_csv(csv_file_name = get_data_files()[1])) > 1)
+
+convert_to_jsonl <- function(
+  csv_file_name,
+  jsonl_file_name
+) {
+
+  testthat::expect_equal(1, length(csv_file_name))
+  testthat::expect_true(file.exists(csv_file_name))
+  t <- read_csv(csv_file_name)
 
   n_lines <- nrow(t)
 
   jsonl_text <- rep(x = "", times = n_lines)
 
-
-  do_list_missing_images <- TRUE
-  if (do_list_missing_images) {
-
-    n <- 0
-    for (i in seq_len(n_lines)) {
-      screen_name <- t$screen_name[i]
-      image_path <- create_image_path(screen_name)
-      if (!file.exists(image_path)) {
-        message(screen_name)
-        n <- n + 1
-      }
-      #if (n == 50) return (42)
-    }
-
-  }
-
-
   for (i in seq_len(n_lines)) {
     img_path <- create_image_path(t$screen_name[i])
     # message(img_path)
-    if (!file.exists(img_path)) break
+    if (!file.exists(img_path)) {
+      stop("ERROR: I exists. I may be empty")
+      break
+    }
+    # Accounts without a profile picture are skipped
+    if (!file.exists(to_intermediate_file_name(img_path))) {
+      next
+    }
     jsonl_text[i] <- create_line(
       id = t$id[i], # string
       name = t$name[i],
@@ -160,6 +170,26 @@ convert_to_jsonl <- function(
   readr::write_lines(jsonl_text, jsonl_file_name)
 }
 
+#' Display the missing images using \link{message}
+show_missing_images <- function(csv_file_name) {
+  testthat::expect_equal(1, length(csv_file_name))
+  testthat::expect_true(file.exists(csv_file_name))
+  t <- read_csv(csv_file_name)
+
+  n_lines <- nrow(t)
+
+  n <- 0
+  for (i in seq_len(n_lines)) {
+    screen_name <- t$screen_name[i]
+    image_path <- create_image_path(screen_name)
+    if (!file.exists(image_path)) {
+      message(screen_name)
+      n <- n + 1
+    }
+    #if (n == 50) return (42)
+  }
+}
+
 for (csv_file_name in get_data_files()) {
   jsonl_file_name <- to_intermediate_file_name(csv_file_name)
   dir.create(dirname(jsonl_file_name), showWarnings = FALSE)
@@ -168,3 +198,9 @@ for (csv_file_name in get_data_files()) {
   testthat::expect_true(file.exists(jsonl_file_name))
 }
 
+
+if (1 == 2) {
+
+  csv_filename <- get_data_files()[1]
+
+}
