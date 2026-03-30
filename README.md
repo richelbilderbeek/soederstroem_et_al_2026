@@ -169,3 +169,29 @@ Collecting git+https://github.com/euagendas/m3inference.git
 However, the code `run.py` will not work.
 
 
+
+
+## Scribbles
+
+DEBUG: use only yttrandefrihet
+csv_file_name: data/yttrandefrihet.csv (453 lines)
+jsonl_file_name: intermediate/yttrandefrihet.jsonl (69 lines)
+
+real	0m16.829s
+user	0m17.879s
+sys	0m1.845s
+
+
+richel@richel-latitude-7430:~/GitHubs/twitter_inference$ time ./1_create_pre_data.R 
+DEBUG: use only swexit
+csv_file_name: data/swexit.csv (1005 lines)
+jsonl_file_name: intermediate/swexit.jsonl (88 lines)
+
+real	0m28.687s
+user	0m29.724s
+sys	0m1.910s
+
+
+30 seconds for 1k accounts
+Need 1M accounts.
+This takes 30 secs/1k accounts * 1M = 500 min = 8.33 hours
