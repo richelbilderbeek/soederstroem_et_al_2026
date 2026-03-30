@@ -183,6 +183,20 @@ Filename                                          |Lines|Profiles|Profiles/line
 [data/swexit.csv](data/swexit.csv)                |1005 |88      |9%
 [data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|3664    |?
 
+richel@richel-latitude-7430:~/GitHubs/twitter_inference$ ./1_create_pre_data.R 
+csv_file_name: data/yttrandefrihet.csv (453 lines)
+jsonl_file_name: intermediate/yttrandefrihet.jsonl (69 lines)
+csv_file_name: data/yttrandefrihet.csv (453 lines)
+jsonl_file_name: intermediate/yttrandefrihet_text_based.jsonl (311 lines)
+csv_file_name: data/swexit.csv (1005 lines)
+jsonl_file_name: intermediate/swexit.jsonl (88 lines)
+csv_file_name: data/swexit.csv (1005 lines)
+jsonl_file_name: intermediate/swexit_text_based.jsonl (644 lines)
+csv_file_name: data/stop_the_steal.csv (22003 lines)
+jsonl_file_name: intermediate/stop_the_steal.jsonl (3664 lines)
+csv_file_name: data/stop_the_steal.csv (22003 lines)
+jsonl_file_name: intermediate/stop_the_steal_text_based.jsonl (14560 lines)
+
 
 ### `3_only_keep_existing_images.R `
 
@@ -201,6 +215,48 @@ Filename                                          |Lines|User time|Time per line
 [data/yttrandefrihet.csv](data/yttrandefrihet.csv)|453  |17.879s  |0.04 s/line
 [data/swexit.csv](data/swexit.csv)                |1005 |29.724s  |0.03 s/line
 [data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|7m12.203s|0.02 s/line
+
+### 4
+
+``` 
+richel@richel-latitude-7430:~/GitHubs/twitter_inference$ time ./4_run_processed_data_yttrandefrihet_text_based.sh
+...
+xt_model.mdl
+03/30/2026 21:21:41 - INFO - m3inference.dataset -   311 data entries loaded.
+Predicting...:   0%|                                                 | 0/20 [00:00<?, ?it/s]/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py:1118: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+Predicting...: 100%|████████████████████████████████████████| 20/20 [00:01<00:00, 13.00it/s]
+03/30/2026 21:21:42 - WARNING - m3inference.m3inference -   ID 1158478976 already exists. Please double-check the input data. Skipping for now...
+
+real	1m59.452s
+user	0m21.547s
+sys	0m2.279s
+```
+
+```
+richel@richel-latitude-7430:~/GitHubs/twitter_inference$ time ./4_run_processed_data_swexit_text_based.sh 
+03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Version 1.1.5
+03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Running on cpu.
+03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Will use text model. Note that as M3 was optimized to work well with both image and text data,                                     it is not recommended to use text only model unless you do not have the profile image.
+03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Model text_model exists at /home/richel/m3/models/text_model.mdl.
+03/30/2026 21:25:38 - INFO - m3inference.utils -   Checking MD5 for model text_model at /home/richel/m3/models/text_model.mdl
+03/30/2026 21:25:38 - INFO - m3inference.utils -   MD5s match.
+03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Loaded pretrained weight at /home/richel/m3/models/text_model.mdl
+03/30/2026 21:25:38 - INFO - m3inference.dataset -   644 data entries loaded.
+Predicting...:   0%|                                                 | 0/41 [00:00<?, ?it/s]/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py:1118: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+Predicting...: 100%|████████████████████████████████████████| 41/41 [00:04<00:00,  9.24it/s]
+03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 939763274823987200 already exists. Please double-check the input data. Skipping for now...
+03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 939763274823987200 already exists. Please double-check the input data. Skipping for now...
+03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 190195939 already exists. Please double-check the input data. Skipping for now...
+03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 190195939 already exists. Please double-check the input data. Skipping for now...
+03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 49568716 already exists. Please double-check the input data. Skipping for now...
+
+real	0m6.713s
+user	0m55.083s
+sys	0m1.932s
+```
+
 
 ## Scribbles
 
