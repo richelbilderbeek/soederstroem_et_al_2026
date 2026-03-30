@@ -281,3 +281,22 @@ Aha:
 ```
 
 Need to remove quotes from names!
+
+
+## Scriwfeg
+
+```
+json.decoder.JSONDecodeError: Invalid \escape: line 1 column 29 (char 28)
+
+real	0m2.153s
+user	0m2.582s
+sys	0m1.607s
+richel@richel-latitude-7430:~/GitHubs/twitter_inference$ cat temp_stop_the_steal_text_based.jsonl | head -n 2874 > intermediate/stop_the_steal_text_based.jsonl
+```
+
+```
+richel@richel-latitude-7430:~/GitHubs/twitter_inference$ cat temp_stop_the_steal_text_based.jsonl | head -n 2874 | tail -n 1
+{"id": "74513550", "name": "\_()_/", "screen_name": "EmilLevy", "description": "Physical", "lang": "en", "img_path": "data/EmilLevy.jpg"}
+```
+
+Remove the backslash from names
