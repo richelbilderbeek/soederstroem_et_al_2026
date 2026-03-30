@@ -112,7 +112,7 @@ read_csv <- function(csv_file_name) {
   # Pipeline will not work without it
   t$name <- stringr::str_remove_all(stringi::stri_enc_toascii(t$name), "\032")
   t$name <- stringr::str_remove_all(t$name, "\"")
-  t$name <- stringr::str_remove_all(t$name, "\\")
+  t$name <- stringr::str_remove_all(t$name, "\\\\")
   t$description <- stringr::str_remove_all(stringr::str_remove_all(stringi::stri_enc_toascii(t$description), "\032"), "\n")
 
   # Remove quotes, as JSONL parser gets confused
