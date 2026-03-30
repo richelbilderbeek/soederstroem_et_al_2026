@@ -24,7 +24,7 @@ for (jsonl_filename in jsonl_filenames) {
   ages_ge_40 <- ages_ge_40[!is.na(ages_ge_40)]
   testthat::expect_equal(length(ids), length(ages_le_18))
 
-  gender_male <- stringr::str_match(lines, "male.: ([01].[0-9]+)")[, 2]
+  gender_male <- stringr::str_match(lines, "female.*male.: ([01].[0-9]+)")[, 2]
   gender_male <- gender_male[!is.na(gender_male)]
   testthat::expect_equal(length(ids), length(gender_male))
 
