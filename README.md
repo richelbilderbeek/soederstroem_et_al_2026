@@ -200,3 +200,28 @@ Filename                                          |Lines|User time|Time per line
 [data/yttrandefrihet.csv](data/yttrandefrihet.csv)|453  |17.879s  |0.04 s/line
 [data/swexit.csv](data/swexit.csv)                |1005 |29.724s  |0.03 s/line
 [data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|7m12.203s|0.02 s/line
+
+
+## Scribbles
+
+```
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 1 column 40 (char 39)
+
+real	0m2.206s
+user	0m2.489s
+sys	0m1.617s
+richel@richel-latitude-7430:~/GitHubs/twitter_inference$ cat temp_stop_the_steal.jsonl | head -n 2179 | tail -n 1 > intermediate/stop_the_steal.jsonl
+```
+
+```
+richel@richel-latitude-7430:~/GitHubs/twitter_inference$ cat temp_stop_the_steal.jsonl | head -n 2179 | tail -n 1 
+{"id": "237829375", "name": "Pasquale "Pat" Scopelliti", "screen_name": "ThyConsigliori", "description": "At CloutHub, Gab, Parler, and Telegram I am @ThyConsigliori, same as here. A new plan of #MAGAaction is needed. Together, let's write and execute that new plan!", "lang": "en", "img_path": "data/ThyConsigliori.jpg"}
+```
+
+Aha:
+
+```
+"name": "Pasquale "Pat" Scopelliti"
+```
+
+Need to remove quotes from names!
