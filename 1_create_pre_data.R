@@ -50,7 +50,7 @@ create_test_text <- function() {
 get_data_files <- function() {
   csv_file_names <- list.files(path = "data", pattern = "*.csv", full.names = TRUE)
   testthat::expect_equal(3, length(csv_file_names))
-  csv_file_names
+  rev(csv_file_names)
 }
 
 testthat::expect_true(all(file.exists(get_data_files())))
@@ -58,11 +58,15 @@ testthat::expect_true(all(file.exists(get_data_files())))
 
 #' Convert the file path of a comma-separated file in 'data',
 #' to a path of a JSONL file in 'intermediate'
-to_intermediate_file_name <- function(data_file_name) {
-  stringr::str_replace(
+to_intermediate_file_name <- function(data_file_name, must_have_picture = TRUE) {
+  jsonl_filename <- stringr::str_replace(
     stringr::str_replace(data_file_name, ".csv", ".jsonl"),
     "data/",
     "intermediate/")
+  if (!must_have_picture) {
+    jsonl_filename <- stringr::str_replace(jsonl_filename, ".jsonl", "_text_based.jsonl")
+  }
+  jsonl_filename
 }
 
 testthat::expect_equal(
@@ -76,6 +80,10 @@ testthat::expect_equal(
 testthat::expect_equal(
   to_intermediate_file_name(data_file_name = "data/swexit.csv"),
   "intermediate/swexit.jsonl"
+)
+testthat::expect_equal(
+  to_intermediate_file_name(data_file_name = "data/swexit.csv", must_have_picture = FALSE),
+  "intermediate/swexit_text_based.jsonl"
 )
 
 create_image_path <- function(screen_name) {
@@ -135,7 +143,8 @@ testthat::expect_equal(2, length(remove_empty_lines(text)))
 
 convert_to_jsonl <- function(
   csv_file_name,
-  jsonl_file_name
+  jsonl_file_name,
+  must_have_picture
 ) {
 
   testthat::expect_equal(1, length(csv_file_name))
@@ -149,7 +158,7 @@ convert_to_jsonl <- function(
   for (i in seq_len(n_lines)) {
     img_path <- create_image_path(t$screen_name[i])
     # Accounts without a profile picture are skipped
-    if (!file.exists(img_path)) {
+    if (must_have_picture && !file.exists(img_path)) {
       next
     }
     jsonl_text[i] <- create_line(
@@ -187,12 +196,14 @@ show_missing_images <- function(csv_file_name) {
 csv_file_names <- get_data_files()
 
 for (csv_file_name in csv_file_names) {
-  message("csv_file_name: ", csv_file_name, " (", length(readr::read_lines(csv_file_name)), " lines)")
-  jsonl_file_name <- to_intermediate_file_name(csv_file_name)
-  dir.create(dirname(jsonl_file_name), showWarnings = FALSE)
-  convert_to_jsonl(csv_file_name = csv_file_name, jsonl_file_name = jsonl_file_name)
-  testthat::expect_true(file.exists(jsonl_file_name))
-  message("jsonl_file_name: ", jsonl_file_name, " (", length(readr::read_lines(jsonl_file_name)), " lines)")
+  for (must_have_picture in c(TRUE, FALSE)) {
+    message("csv_file_name: ", csv_file_name, " (", length(readr::read_lines(csv_file_name)), " lines)")
+    jsonl_file_name <- to_intermediate_file_name(csv_file_name, must_have_picture = must_have_picture)
+    dir.create(dirname(jsonl_file_name), showWarnings = FALSE)
+    convert_to_jsonl(csv_file_name = csv_file_name, jsonl_file_name = jsonl_file_name, must_have_picture = must_have_picture)
+    testthat::expect_true(file.exists(jsonl_file_name))
+    message("jsonl_file_name: ", jsonl_file_name, " (", length(readr::read_lines(jsonl_file_name)), " lines)")
+  }
 }
 
 
