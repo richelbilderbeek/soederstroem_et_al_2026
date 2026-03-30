@@ -173,35 +173,30 @@ However, the code `run.py` will not work.
 
 ## Scribbles
 
-DEBUG: use only yttrandefrihet
-csv_file_name: data/yttrandefrihet.csv (453 lines)
-jsonl_file_name: intermediate/yttrandefrihet.jsonl (69 lines)
+## Selecting
 
-real	0m16.829s
-user	0m17.879s
-sys	0m1.845s
+### `1_create_pre_data.R `
 
+Filename                                          |Lines|Profiles|Profiles/line
+--------------------------------------------------|-----|--------|-------------
+[data/yttrandefrihet.csv](data/yttrandefrihet.csv)|453  |69      |15%
+[data/swexit.csv](data/swexit.csv)                |1005 |88      |9%
+[data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|3664    |?
 
-richel@richel-latitude-7430:~/GitHubs/twitter_inference$ time ./1_create_pre_data.R 
-DEBUG: use only swexit
-csv_file_name: data/swexit.csv (1005 lines)
-jsonl_file_name: intermediate/swexit.jsonl (88 lines)
+### `3_only_keep_existing_images.R `
 
-real	0m28.687s
-user	0m29.724s
-sys	0m1.910s
+Filename                                          |Profiles|Full profiles|Full profile/profile
+--------------------------------------------------|--------|-------------|-------------
+[data/yttrandefrihet.csv](data/yttrandefrihet.csv)|69      |16           |
+[data/swexit.csv](data/swexit.csv)                |88      |16           |
+[data/stop_the_steal.csv](data/stop_the_steal.csv)|3664    |?            |
 
+## Timings
 
-30 seconds for 1k accounts
-Need 1M accounts.
-This takes 30 secs/1k accounts * 1M = 500 min = 8.33 hours
+### `1_create_pre_data.R `
 
-
-
-richel@richel-latitude-7430:~/GitHubs/twitter_inference$ ./3_only_keep_existing_images.R 
-jsonl_file: intermediate/swexit_resized.jsonl
-Keeping: 16
-Dropping: 72
-jsonl_file: intermediate/yttrandefrihet_resized.jsonl
-Keeping: 16
-Dropping: 53
+Filename                                          |Lines|User time|Time per line
+--------------------------------------------------|-----|---------|-------------
+[data/yttrandefrihet.csv](data/yttrandefrihet.csv)|453  |17.879s  |0.04 s/line
+[data/swexit.csv](data/swexit.csv)                |1005 |29.724s  |0.03 s/line
+[data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|7m12.203s|0.02 s/line

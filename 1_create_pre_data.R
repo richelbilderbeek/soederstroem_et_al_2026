@@ -188,8 +188,8 @@ show_missing_images <- function(csv_file_name) {
 csv_file_names <- get_data_files()
 
 # Select only yttrandefrihet
-#message("DEBUG: use only swexit")
-#csv_file_names <- stringr::str_subset(csv_file_names, "swexit")
+message("DEBUG: use only stop_the")
+csv_file_names <- stringr::str_subset(csv_file_names, "stop_the")
 
 for (csv_file_name in csv_file_names) {
   message("csv_file_name: ", csv_file_name, " (", length(readr::read_lines(csv_file_name)), " lines)")
