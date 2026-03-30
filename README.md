@@ -283,7 +283,7 @@ Aha:
 Need to remove quotes from names!
 
 
-## Scriwfeg
+## Another thing that does not work
 
 ```
 json.decoder.JSONDecodeError: Invalid \escape: line 1 column 29 (char 28)
@@ -300,3 +300,11 @@ richel@richel-latitude-7430:~/GitHubs/twitter_inference$ cat temp_stop_the_steal
 ```
 
 Remove the backslash from names
+
+## Another one
+
+```
+richel@richel-latitude-7430:~/GitHubs/twitter_inference$ cat temp_stop_the_steal_text_based.jsonl | head -n 3310 | tail -n 1 
+{"id": "1032417765943128064", "name": "Fish.Bonze", "screen_name": "MudsenCo", "description": "A proud Canadian Conservative/Libertarian #Man! Who loves Americana\Canadiana! I will fight tyranny & #soros+the UN/NWO until my time is up! #Livefreeordie", "lang": "en", "img_path": "data/MudsenCo.jpg"}
+```
+Remove the backslash from description
