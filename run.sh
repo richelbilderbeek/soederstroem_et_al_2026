@@ -5,10 +5,11 @@
 #
 ./1_create_pre_data.R
 ./2_pre_process.sh 
-./3_run_processed_data_stop_the_steal.py > results_stop_the_steal.jsonl
-./3_run_processed_data_swexit.py > results_swexit.jsonl
-./3_run_processed_data_yttrandefrihet.py > results_yttrandefrihet.jsonl
-
+./3_only_keep_existing_images.R
+./4_run_processed_data_stop_the_steal.sh
+./4_run_processed_data_swexit.sh
+./4_run_processed_data_yttrandefrihet.sh
+./5_jsons_to_csv.R
 echo " "
 echo "DONE!"
 echo " "
