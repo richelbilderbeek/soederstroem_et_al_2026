@@ -195,3 +195,13 @@ sys	0m1.910s
 30 seconds for 1k accounts
 Need 1M accounts.
 This takes 30 secs/1k accounts * 1M = 500 min = 8.33 hours
+
+
+
+richel@richel-latitude-7430:~/GitHubs/twitter_inference$ ./3_only_keep_existing_images.R 
+jsonl_file: intermediate/swexit_resized.jsonl
+Keeping: 16
+Dropping: 72
+jsonl_file: intermediate/yttrandefrihet_resized.jsonl
+Keeping: 16
+Dropping: 53
