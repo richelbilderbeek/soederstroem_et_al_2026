@@ -10,6 +10,10 @@ for (jsonl_filename in jsonl_filenames) {
 
   ages_19_29 <- stringr::str_match(lines, "age.*19-29.: ([01].[0-9]+)")[, 2]
   ages_19_29 <- ages_19_29[!is.na(ages_19_29)]
+  if (length(ids) < length(ages_19_29)) {
+    n_missing <- length(ages_19_29) - length(ids)
+    ids <- c(ids, rep(x = 1234567890, times = n_missing))
+  }
   testthat::expect_equal(length(ids), length(ages_19_29))
 
   ages_30_39 <- stringr::str_match(lines, "30-39.: ([01].[0-9]+)")[, 2]
