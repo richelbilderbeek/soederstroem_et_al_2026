@@ -50,7 +50,8 @@ create_test_text <- function() {
 get_data_files <- function() {
   csv_file_names <- list.files(path = "data", pattern = "*.csv", full.names = TRUE)
   testthat::expect_equal(3, length(csv_file_names))
-  rev(csv_file_names)
+  # rev(csv_file_names)
+  csv_file_names
 }
 
 testthat::expect_true(all(file.exists(get_data_files())))
@@ -197,7 +198,7 @@ show_missing_images <- function(csv_file_name) {
 csv_file_names <- get_data_files()
 
 for (csv_file_name in csv_file_names) {
-  for (must_have_picture in c(TRUE, FALSE)) {
+  for (must_have_picture in c(FALSE, TRUE)) {
     message("csv_file_name: ", csv_file_name, " (", length(readr::read_lines(csv_file_name)), " lines)")
     jsonl_file_name <- to_intermediate_file_name(csv_file_name, must_have_picture = must_have_picture)
     dir.create(dirname(jsonl_file_name), showWarnings = FALSE)
