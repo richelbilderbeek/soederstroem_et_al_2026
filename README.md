@@ -183,13 +183,14 @@ Filename                                          |Lines|Profiles|Profiles/line
 [data/swexit.csv](data/swexit.csv)                |1005 |88      |9%
 [data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|3664    |?
 
+
 ### `3_only_keep_existing_images.R `
 
 Filename                                          |Profiles|Full profiles|Full profile/profile
 --------------------------------------------------|--------|-------------|-------------
-[data/yttrandefrihet.csv](data/yttrandefrihet.csv)|69      |16           |
-[data/swexit.csv](data/swexit.csv)                |88      |16           |
-[data/stop_the_steal.csv](data/stop_the_steal.csv)|3664    |?            |
+[data/yttrandefrihet.csv](data/yttrandefrihet.csv)|69      |16           |23%
+[data/swexit.csv](data/swexit.csv)                |88      |16           |18%
+[data/stop_the_steal.csv](data/stop_the_steal.csv)|3664    |22           |0.6%
 
 ## Timings
 
@@ -200,7 +201,6 @@ Filename                                          |Lines|User time|Time per line
 [data/yttrandefrihet.csv](data/yttrandefrihet.csv)|453  |17.879s  |0.04 s/line
 [data/swexit.csv](data/swexit.csv)                |1005 |29.724s  |0.03 s/line
 [data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|7m12.203s|0.02 s/line
-
 
 ## Scribbles
 
