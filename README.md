@@ -81,6 +81,35 @@ Script name                                                                     
 ------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
 [1_create_pre_data.R](1_create_pre_data.R)                                                            |Create M3Inference pre data
 
+Filename                                          |Lines|Entries |Profiles|Profiles/line
+--------------------------------------------------|-----|--------|--------|-------------
+[data/yttrandefrihet.csv](data/yttrandefrihet.csv)|453  |311     |69      |15%
+[data/swexit.csv](data/swexit.csv)                |1005 |644     |88      |9%
+[data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|14560   |3664    |17%
+
+- Lines: the number of lines the file has
+- Entries: the number of entries the file has. Because users are allowed to
+  have newlines (`\n`) in their profiles, one entry can span multiple lines
+  in a file
+- Profiles: the number of profiles with an image
+- Profiles/line: the number of profiles with an image per line of file
+
+```
+richel@richel-latitude-7430:~/GitHubs/twitter_inference$ ./1_create_pre_data.R 
+csv_file_name: data/yttrandefrihet.csv (453 lines)
+jsonl_file_name: intermediate/yttrandefrihet.jsonl (69 lines)
+csv_file_name: data/yttrandefrihet.csv (453 lines)
+jsonl_file_name: intermediate/yttrandefrihet_text_based.jsonl (311 lines)
+csv_file_name: data/swexit.csv (1005 lines)
+jsonl_file_name: intermediate/swexit.jsonl (88 lines)
+csv_file_name: data/swexit.csv (1005 lines)
+jsonl_file_name: intermediate/swexit_text_based.jsonl (644 lines)
+csv_file_name: data/stop_the_steal.csv (22003 lines)
+jsonl_file_name: intermediate/stop_the_steal.jsonl (3664 lines)
+csv_file_name: data/stop_the_steal.csv (22003 lines)
+jsonl_file_name: intermediate/stop_the_steal_text_based.jsonl (14560 lines)
+```
+
 ### Step 2
 
 Script name                                                                                           |Description
@@ -303,29 +332,6 @@ However, the code `run.py` will not work.
 
 ## Selecting
 
-### `1_create_pre_data.R `
-
-Filename                                          |Lines|Profiles|Profiles/line
---------------------------------------------------|-----|--------|-------------
-[data/yttrandefrihet.csv](data/yttrandefrihet.csv)|453  |69      |15%
-[data/swexit.csv](data/swexit.csv)                |1005 |88      |9%
-[data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|3664    |17%
-
-```
-richel@richel-latitude-7430:~/GitHubs/twitter_inference$ ./1_create_pre_data.R 
-csv_file_name: data/yttrandefrihet.csv (453 lines)
-jsonl_file_name: intermediate/yttrandefrihet.jsonl (69 lines)
-csv_file_name: data/yttrandefrihet.csv (453 lines)
-jsonl_file_name: intermediate/yttrandefrihet_text_based.jsonl (311 lines)
-csv_file_name: data/swexit.csv (1005 lines)
-jsonl_file_name: intermediate/swexit.jsonl (88 lines)
-csv_file_name: data/swexit.csv (1005 lines)
-jsonl_file_name: intermediate/swexit_text_based.jsonl (644 lines)
-csv_file_name: data/stop_the_steal.csv (22003 lines)
-jsonl_file_name: intermediate/stop_the_steal.jsonl (3664 lines)
-csv_file_name: data/stop_the_steal.csv (22003 lines)
-jsonl_file_name: intermediate/stop_the_steal_text_based.jsonl (14560 lines)
-```
 
 ### `3_only_keep_existing_images.R `
 

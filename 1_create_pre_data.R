@@ -91,7 +91,6 @@ create_image_path <- function(screen_name) {
   testthat::expect_equal(1, length(screen_name))
   testthat::expect_true(is.character(screen_name))
   testthat::expect_true(nchar(screen_name) > 0)
-  # paste0("data/", stringr::str_to_lower(screen_name), ".jpg")
   paste0("data/", screen_name, ".jpg")
 }
 
