@@ -40,8 +40,8 @@ Input file                                        |Description
 ```mermaid
 flowchart TD
 
-  twitter_profiles
-  twitter_profile_pictures
+  twitter_profiles[Twitter/X profiles]
+  twitter_profile_pictures[Twitter/X profile pictures]
   pre_data[Data readable by M3Inference]
   processed_pre_data[Processed data, ready for M3Inference]
   clean_processed_pre_data[Clean processed data, ready for M3Inference]
@@ -57,7 +57,6 @@ flowchart TD
   processed_pre_data --> |3_only_keep_existing_images.R| clean_processed_pre_data
   clean_processed_pre_data --> |4_run_processed_data_x.sh| inferred_demographics_jsonl
   inferred_demographics_jsonl --> |5_jsons_to_csv.R| inferred_demographics_csv
-
 ```
 
 Script name                                                                                           |Description
