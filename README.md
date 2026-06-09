@@ -66,7 +66,7 @@ Script name                                                                     
 [1_create_pre_data.R](1_create_pre_data.R)                                                            |Create M3Inference pre data
 [2_pre_process.sh](2_pre_process.sh)                                                                  |Let M3Inference pre-process that data
 [3_only_keep_existing_images.R](3_only_keep_existing_images.R)                                        |Filter M3Inference-ready data for profile images to exist
-[4_run_processed_data_stop_the_steal.py](4_run_processed_data_stop_the_steal.py                       |Run M3Inference for 'Stop the Steal' profiles, uses images when possible
+[4_run_processed_data_stop_the_steal.py](4_run_processed_data_stop_the_steal.py)                      |Run M3Inference for 'Stop the Steal' profiles, uses images when possible
 [4_run_processed_data_stop_the_steal.sh](4_run_processed_data_stop_the_steal.sh)                      |Run M3Inference for 'Stop the Steal' profiles, uses images when possible
 [4_run_processed_data_stop_the_steal_text_based.py](4_run_processed_data_stop_the_steal_text_based.py)|Run M3Inference for 'Stop the Steal' profiles, only uses the profile text
 [4_run_processed_data_stop_the_steal_text_based.sh](4_run_processed_data_stop_the_steal_text_based.sh)|Run M3Inference for 'Stop the Steal' profiles, only uses the profile text
