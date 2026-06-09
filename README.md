@@ -11,6 +11,16 @@ The characteristics inferred from a Twitter/X profile are
 the age, gender and whether it is a person or organization.
 This inference is done with and without a profile image.
 
+## Usage
+
+After [installation](#installation), do:
+
+```bash
+./run.sh
+```
+
+The results are saved to the six `results_[something].csv` files.
+
 ## Overview of steps
 
 Here I give an overview of input, output and intermediate scripts.
