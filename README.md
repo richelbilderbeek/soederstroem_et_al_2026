@@ -5,20 +5,26 @@ These are some calculations as part of `[Söderström et al., 2026]`.
 ## Goal
 
 The goal of this code is to estimate some characteristics from
-a list of Twitter/X profiles.
+three list of Twitter/X profiles.
 The list of Twitter/X profiles has been provided by the others.
-The characteristics estimated from a Twitter/X profile are
+The characteristics inferred from a Twitter/X profile are
 the age, gender and whether it is a person or organization.
+This inference is done with and without a profile image.
 
 ## Overview of steps
 
-Input files:
+Here I give an overview of input, output and intermediate scripts.
+The intermediate scripts are described in the detailed overview.
 
-- [data/stop_the_steal.csv](data/stop_the_steal.csv)
-- [data/swexit.csv](data/swexit.csv)
-- [data/yttrandefrihet.csv](data/yttrandefrihet.csv)
+### Input files
 
-Pipeline:
+Input file                                        |Description
+--------------------------------------------------|----------------------------
+[data/stop_the_steal.csv](data/stop_the_steal.csv)|'Stop the Steal' profiles
+[data/swexit.csv](data/swexit.csv)                |'Swexit' profiles
+[data/yttrandefrihet.csv](data/yttrandefrihet.csv)|'Yttrandefrihet' profiles
+
+### Pipeline
 
 ```mermaid
 flowchart TD
@@ -43,33 +49,84 @@ flowchart TD
 
 ```
 
-Scripts:
+Script name                                                                                           |Description
+------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
+[0_download_images.py](0_download_images.py)                                                          |Downloads the profile image of the Twitter/X profile
+[1_create_pre_data.R](1_create_pre_data.R)                                                            |Create M3Inference pre data
+[2_pre_process.sh](2_pre_process.sh)                                                                  |Let M3Inference pre-process that data
+[3_only_keep_existing_images.R](3_only_keep_existing_images.R)                                        |Filter M3Inference-ready data for profile images to exist
+[4_run_processed_data_stop_the_steal.py](4_run_processed_data_stop_the_steal.py                       |Run M3Inference for 'Stop the Steal' profiles, uses images when possible
+[4_run_processed_data_stop_the_steal.sh](4_run_processed_data_stop_the_steal.sh)                      |Run M3Inference for 'Stop the Steal' profiles, uses images when possible
+[4_run_processed_data_stop_the_steal_text_based.py](4_run_processed_data_stop_the_steal_text_based.py)|Run M3Inference for 'Stop the Steal' profiles, only uses the profile text
+[4_run_processed_data_stop_the_steal_text_based.sh](4_run_processed_data_stop_the_steal_text_based.sh)|Run M3Inference for 'Stop the Steal' profiles, only uses the profile text
+[4_run_processed_data_swexit.py](4_run_processed_data_swexit.py)                                      |Run M3Inference for 'Swexit' profiles, uses images when possible
+[4_run_processed_data_swexit.sh](4_run_processed_data_swexit.sh)                                      |Run M3Inference for 'Swexit' profiles, uses images when possible
+[4_run_processed_data_swexit_text_based.py](4_run_processed_data_swexit_text_based.py)                |Run M3Inference for 'Swexit' profiles, only uses the profile text
+[4_run_processed_data_swexit_text_based.sh](4_run_processed_data_swexit_text_based.sh)                |Run M3Inference for 'Swexit' profiles, only uses the profile text
+[4_run_processed_data_yttrandefrihet.py](4_run_processed_data_yttrandefrihet.py)                      |Run M3Inference for 'Yttrandefrihet' profiles, uses images when possible
+[4_run_processed_data_yttrandefrihet.sh](4_run_processed_data_yttrandefrihet.sh)                      |Run M3Inference for 'Yttrandefrihet' profiles, uses images when possible
+[4_run_processed_data_yttrandefrihet_text_based.py](4_run_processed_data_yttrandefrihet_text_based.py)|Run M3Inference for 'Yttrandefrihet' profiles, only uses the profile text
+[4_run_processed_data_yttrandefrihet_text_based.sh](4_run_processed_data_yttrandefrihet_text_based.sh)|Run M3Inference for 'Yttrandefrihet' profiles, only uses the profile text
+[5_jsons_to_csv.R](5_jsons_to_csv.R)                                                                  |Convert the M3Inference output to a comma-seperated file
 
-[0_download_images.py](0_download_images.py)|Downloads the profile image of the Twitter/X profile
-[1_create_pre_data.R](1_create_pre_data.R)|Create M3Inference pre data
-[2_pre_process.sh](2_pre_process.sh)|Let M3Inference pre-process that data
-[3_only_keep_existing_images.R](3_only_keep_existing_images.R)|Filter M3Inference-ready data for profile images to exist
-[4_run_processed_data_stop_the_steal.py](4_run_processed_data_stop_the_steal.py|Run M3Inference
-[4_run_processed_data_stop_the_steal.sh](4_run_processed_data_stop_the_steal.sh
-[4_run_processed_data_stop_the_steal_text_based.py](4_run_processed_data_stop_the_steal_text_based.py
-[4_run_processed_data_stop_the_steal_text_based.sh](4_run_processed_data_stop_the_steal_text_based.sh
-[4_run_processed_data_swexit.py](4_run_processed_data_swexit.py
-[4_run_processed_data_swexit.sh](4_run_processed_data_swexit.sh
-[4_run_processed_data_swexit_text_based.py](4_run_processed_data_swexit_text_based.py
-[4_run_processed_data_swexit_text_based.sh](4_run_processed_data_swexit_text_based.sh
-[4_run_processed_data_yttrandefrihet.py](4_run_processed_data_yttrandefrihet.py
-[4_run_processed_data_yttrandefrihet.sh](4_run_processed_data_yttrandefrihet.sh
-[4_run_processed_data_yttrandefrihet_text_based.py](4_run_processed_data_yttrandefrihet_text_based.py
-[4_run_processed_data_yttrandefrihet_text_based.sh](4_run_processed_data_yttrandefrihet_text_based.sh
+### Step 0
 
-Output files:
+Script name                                                                                           |Description
+------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
+[0_download_images.py](0_download_images.py)                                                          |Downloads the profile image of the Twitter/X profile
 
-- [results_stop_the_steal.csv](results_stop_the_steal.csv)
-- [results_stop_the_steal_text_based.csv](results_stop_the_steal_text_based.csv)
-- [results_swexit.csv](results_swexit.csv)
-- [results_swexit_text_based.csv](results_swexit_text_based.csv)
-- [results_yttrandefrihet.csv](results_yttrandefrihet.csv)
-- [results_yttrandefrihet_text_based.csv](results_yttrandefrihet_text_based.csv)
+### Step 1
+
+Script name                                                                                           |Description
+------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
+[1_create_pre_data.R](1_create_pre_data.R)                                                            |Create M3Inference pre data
+
+### Step 2
+
+Script name                                                                                           |Description
+------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
+[2_pre_process.sh](2_pre_process.sh)                                                                  |Let M3Inference pre-process that data
+
+### Step 3
+
+Script name                                                                                           |Description
+------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
+[3_only_keep_existing_images.R](3_only_keep_existing_images.R)                                        |Filter M3Inference-ready data for profile images to exist
+
+### Step 4
+
+Script name                                                                                           |Description
+------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
+[4_run_processed_data_stop_the_steal.py](4_run_processed_data_stop_the_steal.py                       |Run M3Inference for 'Stop the Steal' profiles, uses images when possible
+[4_run_processed_data_stop_the_steal.sh](4_run_processed_data_stop_the_steal.sh)                      |Run M3Inference for 'Stop the Steal' profiles, uses images when possible
+[4_run_processed_data_stop_the_steal_text_based.py](4_run_processed_data_stop_the_steal_text_based.py)|Run M3Inference for 'Stop the Steal' profiles, only uses the profile text
+[4_run_processed_data_stop_the_steal_text_based.sh](4_run_processed_data_stop_the_steal_text_based.sh)|Run M3Inference for 'Stop the Steal' profiles, only uses the profile text
+[4_run_processed_data_swexit.py](4_run_processed_data_swexit.py)                                      |Run M3Inference for 'Swexit' profiles, uses images when possible
+[4_run_processed_data_swexit.sh](4_run_processed_data_swexit.sh)                                      |Run M3Inference for 'Swexit' profiles, uses images when possible
+[4_run_processed_data_swexit_text_based.py](4_run_processed_data_swexit_text_based.py)                |Run M3Inference for 'Swexit' profiles, only uses the profile text
+[4_run_processed_data_swexit_text_based.sh](4_run_processed_data_swexit_text_based.sh)                |Run M3Inference for 'Swexit' profiles, only uses the profile text
+[4_run_processed_data_yttrandefrihet.py](4_run_processed_data_yttrandefrihet.py)                      |Run M3Inference for 'Yttrandefrihet' profiles, uses images when possible
+[4_run_processed_data_yttrandefrihet.sh](4_run_processed_data_yttrandefrihet.sh)                      |Run M3Inference for 'Yttrandefrihet' profiles, uses images when possible
+[4_run_processed_data_yttrandefrihet_text_based.py](4_run_processed_data_yttrandefrihet_text_based.py)|Run M3Inference for 'Yttrandefrihet' profiles, only uses the profile text
+[4_run_processed_data_yttrandefrihet_text_based.sh](4_run_processed_data_yttrandefrihet_text_based.sh)|Run M3Inference for 'Yttrandefrihet' profiles, only uses the profile text
+
+### Step 5
+
+Script name                                                                                           |Description
+------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
+[5_jsons_to_csv.R](5_jsons_to_csv.R)                                                                  |Convert the M3Inference output to a comma-seperated file
+
+
+### Output files
+
+Output file                                                                   |Description
+------------------------------------------------------------------------------|----------------------------
+[results_stop_the_steal.csv](results_stop_the_steal.csv)                      |Inferred demographics for the 'Stop the Steal' profiles, used images when possible
+[results_stop_the_steal_text_based.csv](results_stop_the_steal_text_based.csv)|Inferred demographics for the 'Stop the Steal' profiles, only used the profile text
+[results_swexit.csv](results_swexit.csv)                                      |Inferred demographics for the 'Swexit' profiles, used images when possible
+[results_swexit_text_based.csv](results_swexit_text_based.csv)                |Inferred demographics for the 'Swexit' profiles, only used the profile text
+[results_yttrandefrihet.csv](results_yttrandefrihet.csv)                      |Inferred demographics for the 'Yttrandefrihet' profiles, used images when possible
+[results_yttrandefrihet_text_based.csv](results_yttrandefrihet_text_based.csv)|Inferred demographics for the 'Yttrandefrihet, only used the profile text
 
 ## Installation
 
@@ -252,8 +309,9 @@ Filename                                          |Lines|Profiles|Profiles/line
 --------------------------------------------------|-----|--------|-------------
 [data/yttrandefrihet.csv](data/yttrandefrihet.csv)|453  |69      |15%
 [data/swexit.csv](data/swexit.csv)                |1005 |88      |9%
-[data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|3664    |?
+[data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|3664    |17%
 
+```
 richel@richel-latitude-7430:~/GitHubs/twitter_inference$ ./1_create_pre_data.R 
 csv_file_name: data/yttrandefrihet.csv (453 lines)
 jsonl_file_name: intermediate/yttrandefrihet.jsonl (69 lines)
@@ -267,7 +325,7 @@ csv_file_name: data/stop_the_steal.csv (22003 lines)
 jsonl_file_name: intermediate/stop_the_steal.jsonl (3664 lines)
 csv_file_name: data/stop_the_steal.csv (22003 lines)
 jsonl_file_name: intermediate/stop_the_steal_text_based.jsonl (14560 lines)
-
+```
 
 ### `3_only_keep_existing_images.R `
 
