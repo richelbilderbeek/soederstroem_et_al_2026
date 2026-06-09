@@ -16,6 +16,17 @@ This inference is done with and without a profile image.
 Here I give an overview of input, output and intermediate scripts.
 The intermediate scripts are described in the detailed overview.
 
+## Installation
+
+Installing the Python package `m3inference` from the Fork by `jieliliu`
+at [`https://github.com/jieliliu/m3inference`](https://github.com/jieliliu/m3inference)
+can be done as such:
+
+```bash
+pip install git+https://github.com/jieliliu/m3inference.git --break-system-packages
+```
+
+
 ### Input files
 
 Input file                                        |Description
@@ -75,17 +86,37 @@ Script name                                                                     
 ------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
 [0_download_images.py](0_download_images.py)                                                          |Downloads the profile image of the Twitter/X profile
 
+This script download the profile images using the Twitter/X API.
+
+Alongside this, I used 
+[sinugrepo's x_profile_downloader GitHub repository](https://github.com/sinugrepo/x_profile_downloader)
+to download 50 profile images per 4 hours,
+as it is easy to use.
+
 ### Step 1
 
 Script name                                                                                           |Description
 ------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
 [1_create_pre_data.R](1_create_pre_data.R)                                                            |Create M3Inference pre data
 
-Filename                                          |Lines|Entries |Profiles|Profiles/line
---------------------------------------------------|-----|--------|--------|-------------
-[data/yttrandefrihet.csv](data/yttrandefrihet.csv)|453  |311     |69      |15%
-[data/swexit.csv](data/swexit.csv)                |1005 |644     |88      |9%
-[data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|14560   |3664    |17%
+This script converts the 3 input files to 6 intermediate files.
+Per input file, it creates one intermediate file containing all profiles
+and one intermediate file for profiles that have an image.
+
+Besides that, this script does some cleaning:
+
+- Remove emojis: M3Inference cannot process this
+- Remove quotes: M3Inference cannot process this
+- Remove newlines: M3Inference cannot process this
+- If the language is not English (it is often Swedish),
+  set it to unknown,
+  as M3Inference cannot process Swedish
+
+Filename                                          |Lines|Entries |Profiles with pictures|Profiles with pictures/line
+--------------------------------------------------|-----|--------|----------------------|---------------------------
+[data/yttrandefrihet.csv](data/yttrandefrihet.csv)|453  |311     |69                    |15%
+[data/swexit.csv](data/swexit.csv)                |1005 |644     |88                    |9%
+[data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|14560   |3664                  |17%
 
 - Lines: the number of lines the file has
 - Entries: the number of entries the file has. Because users are allowed to
@@ -93,6 +124,8 @@ Filename                                          |Lines|Entries |Profiles|Profi
   in a file
 - Profiles: the number of profiles with an image
 - Profiles/line: the number of profiles with an image per line of file
+
+<!-- Output:
 
 ```
 richel@richel-latitude-7430:~/GitHubs/twitter_inference$ ./1_create_pre_data.R 
@@ -109,6 +142,16 @@ jsonl_file_name: intermediate/stop_the_steal.jsonl (3664 lines)
 csv_file_name: data/stop_the_steal.csv (22003 lines)
 jsonl_file_name: intermediate/stop_the_steal_text_based.jsonl (14560 lines)
 ```
+-->
+
+These are timings of how long this step takes:
+
+Filename                                          |Lines|User time|Time per line
+--------------------------------------------------|-----|---------|-------------
+[data/yttrandefrihet.csv](data/yttrandefrihet.csv)|453  |17.879s  |0.04 s/line
+[data/swexit.csv](data/swexit.csv)                |1005 |29.724s  |0.03 s/line
+[data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|7m12.203s|0.02 s/line
+
 
 ### Step 2
 
@@ -121,6 +164,21 @@ Script name                                                                     
 Script name                                                                                           |Description
 ------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
 [3_only_keep_existing_images.R](3_only_keep_existing_images.R)                                        |Filter M3Inference-ready data for profile images to exist
+
+This script filters for profiles that once existed and once had a
+profile image (i.e. those in the original data set)
+for still existing and still having a profile image
+
+Filename                                          |Profiles|Full profiles|Full profile/profile
+--------------------------------------------------|--------|-------------|-------------
+[data/yttrandefrihet.csv](data/yttrandefrihet.csv)|69      |16           |23%
+[data/swexit.csv](data/swexit.csv)                |88      |16           |18%
+[data/stop_the_steal.csv](data/stop_the_steal.csv)|3664    |22           |0.6%
+
+- Profiles: the number of profiles that once existed and once had a profile
+  image
+- Full profiles: the number of profiles that still exist and still have
+  a profile image
 
 ### Step 4
 
@@ -138,6 +196,56 @@ Script name                                                                     
 [4_run_processed_data_yttrandefrihet.sh](4_run_processed_data_yttrandefrihet.sh)                      |Run M3Inference for 'Yttrandefrihet' profiles, uses images when possible
 [4_run_processed_data_yttrandefrihet_text_based.py](4_run_processed_data_yttrandefrihet_text_based.py)|Run M3Inference for 'Yttrandefrihet' profiles, only uses the profile text
 [4_run_processed_data_yttrandefrihet_text_based.sh](4_run_processed_data_yttrandefrihet_text_based.sh)|Run M3Inference for 'Yttrandefrihet' profiles, only uses the profile text
+
+Here are some timings:
+
+Script                                                                                                |Time
+------------------------------------------------------------------------------------------------------|--------------------------------------------
+[4_run_processed_data_yttrandefrihet_text_based.sh](4_run_processed_data_yttrandefrihet_text_based.sh)|real 1m59.452s, user 0m21.547s, sys 0m2.279s
+[4_run_processed_data_swexit_text_based.sh](4_run_processed_data_swexit_text_based.sh)                |real 0m6.713s, user 0m55.083s, sys 0m1.932s
+
+<!-- 
+
+``` 
+richel@richel-latitude-7430:~/GitHubs/twitter_inference$ time ./4_run_processed_data_yttrandefrihet_text_based.sh
+...
+xt_model.mdl
+03/30/2026 21:21:41 - INFO - m3inference.dataset -   311 data entries loaded.
+Predicting...:   0%|                                                 | 0/20 [00:00<?, ?it/s]/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py:1118: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+Predicting...: 100%|████████████████████████████████████████| 20/20 [00:01<00:00, 13.00it/s]
+03/30/2026 21:21:42 - WARNING - m3inference.m3inference -   ID 1158478976 already exists. Please double-check the input data. Skipping for now...
+
+real	1m59.452s
+user	0m21.547s
+sys	0m2.279s
+```
+
+```
+richel@richel-latitude-7430:~/GitHubs/twitter_inference$ time ./4_run_processed_data_swexit_text_based.sh 
+03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Version 1.1.5
+03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Running on cpu.
+03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Will use text model. Note that as M3 was optimized to work well with both image and text data,                                     it is not recommended to use text only model unless you do not have the profile image.
+03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Model text_model exists at /home/richel/m3/models/text_model.mdl.
+03/30/2026 21:25:38 - INFO - m3inference.utils -   Checking MD5 for model text_model at /home/richel/m3/models/text_model.mdl
+03/30/2026 21:25:38 - INFO - m3inference.utils -   MD5s match.
+03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Loaded pretrained weight at /home/richel/m3/models/text_model.mdl
+03/30/2026 21:25:38 - INFO - m3inference.dataset -   644 data entries loaded.
+Predicting...:   0%|                                                 | 0/41 [00:00<?, ?it/s]/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py:1118: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+Predicting...: 100%|████████████████████████████████████████| 41/41 [00:04<00:00,  9.24it/s]
+03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 939763274823987200 already exists. Please double-check the input data. Skipping for now...
+03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 939763274823987200 already exists. Please double-check the input data. Skipping for now...
+03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 190195939 already exists. Please double-check the input data. Skipping for now...
+03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 190195939 already exists. Please double-check the input data. Skipping for now...
+03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 49568716 already exists. Please double-check the input data. Skipping for now...
+
+real	0m6.713s
+user	0m55.083s
+sys	0m1.932s
+```
+
+-->
 
 ### Step 5
 
@@ -157,16 +265,6 @@ Output file                                                                   |D
 [results_yttrandefrihet.csv](results_yttrandefrihet.csv)                      |Inferred demographics for the 'Yttrandefrihet' profiles, used images when possible
 [results_yttrandefrihet_text_based.csv](results_yttrandefrihet_text_based.csv)|Inferred demographics for the 'Yttrandefrihet, only used the profile text
 
-## Installation
-
-Installing the Python package `m3inference` from the Fork by `jieliliu`
-at [`https://github.com/jieliliu/m3inference`](https://github.com/jieliliu/m3inference)
-can be done as such:
-
-```bash
-pip install git+https://github.com/jieliliu/m3inference.git --break-system-packages
-```
-
 ## Download test data
 
 The testdata can be downloaded from 
@@ -175,22 +273,6 @@ The file can be viewed [here](https://github.com/euagendas/m3inference/blob/mast
 
 ```
 wget https://raw.githubusercontent.com/euagendas/m3inference/refs/heads/master/test/data.jsonl
-```
-
-## Download Twitter profiles
-
-For less than 50 profile images per 4 hours,
-[using this GitHub repository](https://github.com/sinugrepo/x_profile_downloader)
-is easy.
-
-Using [Twitter Media Downloader](https://github.com/mmpx12/twitter-media-downloader.git)
-does allow to download all images, but not the profile pictures:
-
-```
-git clone https://github.com/mmpx12/twitter-media-downloader.git
-cd twitter-media-downloader/
-make
-twmd --user aborgljung --img
 ```
 
 
@@ -326,74 +408,9 @@ Collecting git+https://github.com/euagendas/m3inference.git
 However, the code `run.py` will not work.
 
 
+## Troubleshooting
 
-
-## Scribbles
-
-## Selecting
-
-
-### `3_only_keep_existing_images.R `
-
-Filename                                          |Profiles|Full profiles|Full profile/profile
---------------------------------------------------|--------|-------------|-------------
-[data/yttrandefrihet.csv](data/yttrandefrihet.csv)|69      |16           |23%
-[data/swexit.csv](data/swexit.csv)                |88      |16           |18%
-[data/stop_the_steal.csv](data/stop_the_steal.csv)|3664    |22           |0.6%
-
-## Timings
-
-### `1_create_pre_data.R `
-
-Filename                                          |Lines|User time|Time per line
---------------------------------------------------|-----|---------|-------------
-[data/yttrandefrihet.csv](data/yttrandefrihet.csv)|453  |17.879s  |0.04 s/line
-[data/swexit.csv](data/swexit.csv)                |1005 |29.724s  |0.03 s/line
-[data/stop_the_steal.csv](data/stop_the_steal.csv)|22003|7m12.203s|0.02 s/line
-
-### 4
-
-``` 
-richel@richel-latitude-7430:~/GitHubs/twitter_inference$ time ./4_run_processed_data_yttrandefrihet_text_based.sh
-...
-xt_model.mdl
-03/30/2026 21:21:41 - INFO - m3inference.dataset -   311 data entries loaded.
-Predicting...:   0%|                                                 | 0/20 [00:00<?, ?it/s]/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py:1118: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
-  super().__init__(loader)
-Predicting...: 100%|████████████████████████████████████████| 20/20 [00:01<00:00, 13.00it/s]
-03/30/2026 21:21:42 - WARNING - m3inference.m3inference -   ID 1158478976 already exists. Please double-check the input data. Skipping for now...
-
-real	1m59.452s
-user	0m21.547s
-sys	0m2.279s
-```
-
-```
-richel@richel-latitude-7430:~/GitHubs/twitter_inference$ time ./4_run_processed_data_swexit_text_based.sh 
-03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Version 1.1.5
-03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Running on cpu.
-03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Will use text model. Note that as M3 was optimized to work well with both image and text data,                                     it is not recommended to use text only model unless you do not have the profile image.
-03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Model text_model exists at /home/richel/m3/models/text_model.mdl.
-03/30/2026 21:25:38 - INFO - m3inference.utils -   Checking MD5 for model text_model at /home/richel/m3/models/text_model.mdl
-03/30/2026 21:25:38 - INFO - m3inference.utils -   MD5s match.
-03/30/2026 21:25:38 - INFO - m3inference.m3inference -   Loaded pretrained weight at /home/richel/m3/models/text_model.mdl
-03/30/2026 21:25:38 - INFO - m3inference.dataset -   644 data entries loaded.
-Predicting...:   0%|                                                 | 0/41 [00:00<?, ?it/s]/home/richel/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py:1118: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
-  super().__init__(loader)
-Predicting...: 100%|████████████████████████████████████████| 41/41 [00:04<00:00,  9.24it/s]
-03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 939763274823987200 already exists. Please double-check the input data. Skipping for now...
-03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 939763274823987200 already exists. Please double-check the input data. Skipping for now...
-03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 190195939 already exists. Please double-check the input data. Skipping for now...
-03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 190195939 already exists. Please double-check the input data. Skipping for now...
-03/30/2026 21:25:43 - WARNING - m3inference.m3inference -   ID 49568716 already exists. Please double-check the input data. Skipping for now...
-
-real	0m6.713s
-user	0m55.083s
-sys	0m1.932s
-```
-
-
-## Scribbles
+### `json.decoder.JSONDecodeError: Expecting ',' delimiter`
 
 ```
 json.decoder.JSONDecodeError: Expecting ',' delimiter: line 1 column 40 (char 39)
@@ -418,7 +435,7 @@ Aha:
 Need to remove quotes from names!
 
 
-## Another thing that does not work
+### `json.decoder.JSONDecodeError: Invalid \escape`
 
 ```
 json.decoder.JSONDecodeError: Invalid \escape: line 1 column 29 (char 28)
@@ -436,7 +453,7 @@ richel@richel-latitude-7430:~/GitHubs/twitter_inference$ cat temp_stop_the_steal
 
 Remove the backslash from names
 
-## Another one
+### Unexpected parsing due to backslash
 
 ```
 richel@richel-latitude-7430:~/GitHubs/twitter_inference$ cat temp_stop_the_steal_text_based.jsonl | head -n 3310 | tail -n 1 
