@@ -1,4 +1,75 @@
-# twitter_inference
+# `soederstroem_et_al_2026`
+
+These are some calculations as part of `[Söderström et al., 2026]`.
+
+## Goal
+
+The goal of this code is to estimate some characteristics from
+a list of Twitter/X profiles.
+The list of Twitter/X profiles has been provided by the others.
+The characteristics estimated from a Twitter/X profile are
+the age, gender and whether it is a person or organization.
+
+## Overview of steps
+
+Input files:
+
+- [data/stop_the_steal.csv](data/stop_the_steal.csv)
+- [data/swexit.csv](data/swexit.csv)
+- [data/yttrandefrihet.csv](data/yttrandefrihet.csv)
+
+Pipeline:
+
+```mermaid
+flowchart TD
+
+  twitter_profiles
+  twitter_profile_pictures
+  pre_data[Data readable by M3Inference]
+  processed_pre_data[Processed data, ready for M3Inference]
+  clean_processed_pre_data[Clean processed data, ready for M3Inference]
+  inferred_demographics_jsonl[Inferred demographics, as JSONL]
+  
+  inferred_demographics_csv[Inferred demographics, as CSV]
+
+
+  twitter_profiles --> |0_download_images.py| twitter_profile_pictures
+  twitter_profiles --> |1_create_pre_data.R| pre_data
+  twitter_profile_pictures --> |1_create_pre_data.R| pre_data
+  pre_data --> |2_pre_process.sh| processed_pre_data
+  processed_pre_data --> |3_only_keep_existing_images.R| clean_processed_pre_data
+  clean_processed_pre_data --> |4_run_processed_data_x.sh| inferred_demographics_jsonl
+  inferred_demographics_jsonl --> |5_jsons_to_csv.R| inferred_demographics_csv
+
+```
+
+Scripts:
+
+[0_download_images.py](0_download_images.py)|Downloads the profile image of the Twitter/X profile
+[1_create_pre_data.R](1_create_pre_data.R)|Create M3Inference pre data
+[2_pre_process.sh](2_pre_process.sh)|Let M3Inference pre-process that data
+[3_only_keep_existing_images.R](3_only_keep_existing_images.R)|Filter M3Inference-ready data for profile images to exist
+[4_run_processed_data_stop_the_steal.py](4_run_processed_data_stop_the_steal.py|Run M3Inference
+[4_run_processed_data_stop_the_steal.sh](4_run_processed_data_stop_the_steal.sh
+[4_run_processed_data_stop_the_steal_text_based.py](4_run_processed_data_stop_the_steal_text_based.py
+[4_run_processed_data_stop_the_steal_text_based.sh](4_run_processed_data_stop_the_steal_text_based.sh
+[4_run_processed_data_swexit.py](4_run_processed_data_swexit.py
+[4_run_processed_data_swexit.sh](4_run_processed_data_swexit.sh
+[4_run_processed_data_swexit_text_based.py](4_run_processed_data_swexit_text_based.py
+[4_run_processed_data_swexit_text_based.sh](4_run_processed_data_swexit_text_based.sh
+[4_run_processed_data_yttrandefrihet.py](4_run_processed_data_yttrandefrihet.py
+[4_run_processed_data_yttrandefrihet.sh](4_run_processed_data_yttrandefrihet.sh
+[4_run_processed_data_yttrandefrihet_text_based.py](4_run_processed_data_yttrandefrihet_text_based.py
+[4_run_processed_data_yttrandefrihet_text_based.sh](4_run_processed_data_yttrandefrihet_text_based.sh
+
+Output files:
+
+- [results_stop_the_steal.csv](results_stop_the_steal.csv)
+- [results_stop_the_steal_text_based.csv](results_stop_the_steal_text_based.csv)
+- [results_swexit.csv](results_swexit.csv)
+- [results_swexit_text_based.csv](results_swexit_text_based.csv)
+- [results_yttrandefrihet.csv](results_yttrandefrihet.csv)
+- [results_yttrandefrihet_text_based.csv](results_yttrandefrihet_text_based.csv)
 
 ## Installation
 
@@ -308,3 +379,11 @@ richel@richel-latitude-7430:~/GitHubs/twitter_inference$ cat temp_stop_the_steal
 {"id": "1032417765943128064", "name": "Fish.Bonze", "screen_name": "MudsenCo", "description": "A proud Canadian Conservative/Libertarian #Man! Who loves Americana\Canadiana! I will fight tyranny & #soros+the UN/NWO until my time is up! #Livefreeordie", "lang": "en", "img_path": "data/MudsenCo.jpg"}
 ```
 Remove the backslash from description
+
+## References
+
+- `[Söderström et al., 2026]`
+  Johanna Söderström et al.,
+  "The Affective Paradox in Populist Twitter Communities:
+  Emotional Capital and Emotional Liability",
+  in preparation
