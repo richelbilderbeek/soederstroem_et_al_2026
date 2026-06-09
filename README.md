@@ -184,7 +184,7 @@ Filename                                          |Profiles|Full profiles|Full p
 
 Script name                                                                                           |Description
 ------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
-[4_run_processed_data_stop_the_steal.py](4_run_processed_data_stop_the_steal.py                       |Run M3Inference for 'Stop the Steal' profiles, uses images when possible
+[4_run_processed_data_stop_the_steal.py](4_run_processed_data_stop_the_steal.py)                      |Run M3Inference for 'Stop the Steal' profiles, uses images when possible
 [4_run_processed_data_stop_the_steal.sh](4_run_processed_data_stop_the_steal.sh)                      |Run M3Inference for 'Stop the Steal' profiles, uses images when possible
 [4_run_processed_data_stop_the_steal_text_based.py](4_run_processed_data_stop_the_steal_text_based.py)|Run M3Inference for 'Stop the Steal' profiles, only uses the profile text
 [4_run_processed_data_stop_the_steal_text_based.sh](4_run_processed_data_stop_the_steal_text_based.sh)|Run M3Inference for 'Stop the Steal' profiles, only uses the profile text
