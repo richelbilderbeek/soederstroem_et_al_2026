@@ -287,23 +287,26 @@ Output file                                                                   |D
 
 Description of columns:
 
-Column name|Description
-`data_set`: the dataset
-`f_female`: fraction of female, in percentage (i.e. a value of 12 denotes 12%)
-`n_female`: number of females
-`f_age_le_18`
-`n_age_le_18`
-`f_age_19_29`
-`n_age_19_29`
-`f_age_30_39`
-`n_age_30_39`
-`f_age_ge_40`
-`n_age_ge_40`
-`total`
+Column name  |Description
+-------------|------------------------------------------------------------------------------------------------------------------------------------
+`data_set`   |The dataset
+`f_female`   |Fraction of female, in percentage (i.e. a value of 12 denotes 12%)
+`n_female`   |Number of females
+`f_age_le_18`|Fraction of profiles estimated to have an owner of age 18 years or younger, in percentage (i.e. a value of 12 denotes 12%)
+`n_age_le_18`|Number of profiles estimated to have an owner of age 18 years or younger
+`f_age_19_29`|Fraction of profiles estimated to have an owner of age 19 to (and including) 29 year, in percentage (i.e. a value of 12 denotes 12%)
+`n_age_19_29`|Number of profiles estimated to have an owner of age 19 to (and including) 29 year
+`f_age_30_39`|Fraction of profiles estimated to have an owner of age 30 to (and including) 39 year, in percentage (i.e. a value of 12 denotes 12%)
+`n_age_30_39`|Number of profiles estimated to have an owner of age 30 to (and including) 39 year
+`f_age_ge_40`|Fraction of profiles estimated to have an owner of age 40 years or older, in percentage (i.e. a value of 12 denotes 12%)
+`n_age_ge_40`|Number of profiles estimated to have an owner of age 40 years or older
+`total`      |Total number of profiles
 
-
-### Output files
-
+This calculation is independently reproduced 
+in the Excel sheets
+[results_stopthesteal_text_based.filtered.xlsx](results_stopthesteal_text_based.filtered.xlsx),
+[results_swexit_text_based.xlsx](results_swexit_text_based.xlsx) and
+[results_yttrandefrihet_text_based.xlsx](results_yttrandefrihet_text_based.xlsx).
 
 ## Download test data
 
