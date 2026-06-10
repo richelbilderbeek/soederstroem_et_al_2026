@@ -46,6 +46,7 @@ create_table_a5_raw <- function() {
 
   results <- merge(results, t_f_age_ge_40)
   results$n_age_ge_40 <- results$n * results$f_age_ge_40
+  results$total <- results$n
   results$n <- NULL
   results
 }

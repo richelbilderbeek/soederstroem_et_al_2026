@@ -1,4 +1,4 @@
-data_set,f_female,n_female,f_age_le_18,n_age_le_18,f_age_19_29,n_age_19_29,f_age_30_39,n_age_30_39,f_age_ge_40,n_age_ge_40
-stop_the_steal,43,1572,9,312,8,301,29,1059,54,1949
-swexit,21,131,15,95,11,70,31,197,43,278
-yttrandefrihet,24,75,13,40,9,27,31,95,48,148
+data_set,f_female,n_female,f_age_le_18,n_age_le_18,f_age_19_29,n_age_19_29,f_age_30_39,n_age_30_39,f_age_ge_40,n_age_ge_40,total
+stop_the_steal,43,1572,9,312,8,301,29,1059,54,1949,3621
+swexit,21,131,15,95,11,70,31,197,43,278,639
+yttrandefrihet,24,75,13,40,9,27,31,95,48,148,310
