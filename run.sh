@@ -13,6 +13,7 @@
 ./4_run_processed_data_yttrandefrihet.sh
 ./4_run_processed_data_yttrandefrihet_text_based.sh
 ./5_jsons_to_csv.R
+./6_create_table_a5.R
 echo " "
 echo "DONE!"
 echo " "
