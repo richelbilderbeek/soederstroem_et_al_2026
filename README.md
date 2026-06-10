@@ -88,6 +88,7 @@ Script name                                                                     
 [4_run_processed_data_yttrandefrihet_text_based.py](4_run_processed_data_yttrandefrihet_text_based.py)|Run M3Inference for 'Yttrandefrihet' profiles, only uses the profile text
 [4_run_processed_data_yttrandefrihet_text_based.sh](4_run_processed_data_yttrandefrihet_text_based.sh)|Run M3Inference for 'Yttrandefrihet' profiles, only uses the profile text
 [5_jsons_to_csv.R](5_jsons_to_csv.R)                                                                  |Convert the M3Inference output to a comma-seperated file
+[6_create_table_a5.R](6_create_table_a5.R)                                                            |Create table A5
 
 ### Step 0
 
@@ -194,17 +195,17 @@ Filename                                          |Profiles|Full profiles|Full p
 Script name                                                                                           |Description
 ------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
 [4_run_processed_data_stop_the_steal.py](4_run_processed_data_stop_the_steal.py)                      |Run M3Inference for 'Stop the Steal' profiles, uses images when possible
-[4_run_processed_data_stop_the_steal.sh](4_run_processed_data_stop_the_steal.sh)                      |Run M3Inference for 'Stop the Steal' profiles, uses images when possible
+[4_run_processed_data_stop_the_steal.sh](4_run_processed_data_stop_the_steal.sh)                      |Run the Python script of the same name
 [4_run_processed_data_stop_the_steal_text_based.py](4_run_processed_data_stop_the_steal_text_based.py)|Run M3Inference for 'Stop the Steal' profiles, only uses the profile text
-[4_run_processed_data_stop_the_steal_text_based.sh](4_run_processed_data_stop_the_steal_text_based.sh)|Run M3Inference for 'Stop the Steal' profiles, only uses the profile text
+[4_run_processed_data_stop_the_steal_text_based.sh](4_run_processed_data_stop_the_steal_text_based.sh)|Run the Python script of the same name
 [4_run_processed_data_swexit.py](4_run_processed_data_swexit.py)                                      |Run M3Inference for 'Swexit' profiles, uses images when possible
-[4_run_processed_data_swexit.sh](4_run_processed_data_swexit.sh)                                      |Run M3Inference for 'Swexit' profiles, uses images when possible
+[4_run_processed_data_swexit.sh](4_run_processed_data_swexit.sh)                                      |Run the Python script of the same name
 [4_run_processed_data_swexit_text_based.py](4_run_processed_data_swexit_text_based.py)                |Run M3Inference for 'Swexit' profiles, only uses the profile text
-[4_run_processed_data_swexit_text_based.sh](4_run_processed_data_swexit_text_based.sh)                |Run M3Inference for 'Swexit' profiles, only uses the profile text
+[4_run_processed_data_swexit_text_based.sh](4_run_processed_data_swexit_text_based.sh)                |Run the Python script of the same name
 [4_run_processed_data_yttrandefrihet.py](4_run_processed_data_yttrandefrihet.py)                      |Run M3Inference for 'Yttrandefrihet' profiles, uses images when possible
-[4_run_processed_data_yttrandefrihet.sh](4_run_processed_data_yttrandefrihet.sh)                      |Run M3Inference for 'Yttrandefrihet' profiles, uses images when possible
+[4_run_processed_data_yttrandefrihet.sh](4_run_processed_data_yttrandefrihet.sh)                      |Run the Python script of the same name
 [4_run_processed_data_yttrandefrihet_text_based.py](4_run_processed_data_yttrandefrihet_text_based.py)|Run M3Inference for 'Yttrandefrihet' profiles, only uses the profile text
-[4_run_processed_data_yttrandefrihet_text_based.sh](4_run_processed_data_yttrandefrihet_text_based.sh)|Run M3Inference for 'Yttrandefrihet' profiles, only uses the profile text
+[4_run_processed_data_yttrandefrihet_text_based.sh](4_run_processed_data_yttrandefrihet_text_based.sh)|Run the Python script of the same name
 
 Here are some timings:
 
@@ -262,9 +263,6 @@ Script name                                                                     
 ------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
 [5_jsons_to_csv.R](5_jsons_to_csv.R)                                                                  |Convert the M3Inference output to a comma-seperated file
 
-
-### Output files
-
 Output file                                                                   |Description
 ------------------------------------------------------------------------------|----------------------------
 [results_stop_the_steal.csv](results_stop_the_steal.csv)                      |Inferred demographics for the 'Stop the Steal' profiles, used images when possible
@@ -273,6 +271,39 @@ Output file                                                                   |D
 [results_swexit_text_based.csv](results_swexit_text_based.csv)                |Inferred demographics for the 'Swexit' profiles, only used the profile text
 [results_yttrandefrihet.csv](results_yttrandefrihet.csv)                      |Inferred demographics for the 'Yttrandefrihet' profiles, used images when possible
 [results_yttrandefrihet_text_based.csv](results_yttrandefrihet_text_based.csv)|Inferred demographics for the 'Yttrandefrihet, only used the profile text
+
+### Step 6
+
+Script name                                                                                           |Description
+------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------
+[6_create_table_a5.R](6_create_table_a5.R)                                                            |Create table A5
+
+This script produces table A5 as close as possible to the one shown in
+the publication.
+
+Output file                                                                   |Description
+------------------------------------------------------------------------------|----------------------------
+[table_a5.csv](table_a5.csv)                                                  |Table A5, as close as possible to the one published
+
+Description of columns:
+
+Column name|Description
+`data_set`: the dataset
+`f_female`: fraction of female, in percentage (i.e. a value of 12 denotes 12%)
+`n_female`: number of females
+`f_age_le_18`
+`n_age_le_18`
+`f_age_19_29`
+`n_age_19_29`
+`f_age_30_39`
+`n_age_30_39`
+`f_age_ge_40`
+`n_age_ge_40`
+`total`
+
+
+### Output files
+
 
 ## Download test data
 
