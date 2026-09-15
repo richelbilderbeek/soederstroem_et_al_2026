@@ -507,7 +507,8 @@ Remove the backslash from description
 ## References
 
 - `[Söderström et al., 2026]`
-  Johanna Söderström et al.,
-  "The Affective Paradox in Populist Twitter Communities:
-  Emotional Capital and Emotional Liability",
-  in preparation
+  Söderström, J., Holdo, M., Junman, A., & Bilderbeek, R. J. C. (2026). 
+  The affective paradox in populist online communities: 
+  Emotional capital and emotional liability. 
+  International Journal of Comparative Sociology, 0(0).
+  [`https://doi.org/10.1177/00207152261484401`](https://doi.org/10.1177/00207152261484401)
